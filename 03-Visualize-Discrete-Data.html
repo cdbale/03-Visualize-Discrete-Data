@@ -3213,7 +3213,7 @@ background-size: 100% 100%;
 
 </article></slide><slide class=""><hgroup><h2>Grading Exercises</h2></hgroup><article  id="grading-exercises">
 
-<p>Remember that you grade your own submitted exercises using the rubric specified in each posted exercise solution, adding comments (<strong>directly for R scripts</strong> or using the comment feature for Word documents) where their solution differs from the posted solution.</p>
+<p>Remember that you grade your own submitted exercises using the rubric specified in each posted exercise solution, adding comments (<strong>directly for R scripts</strong> or using the comment feature for Word documents) where your solution differs from the posted solution.</p>
 
 <pre class = 'prettyprint lang-r'># Find the customers who have spent the most recently.
 customer_data |&gt; 
@@ -3244,7 +3244,7 @@ customer_data |&gt;
 <li><strong>Visualizing</strong> data (i.e., graphical summaries).</li>
 </ul>
 
-<p>How we summarize depends on whether the data is <strong>discrete</strong> or <em>continuous</em>.</p>
+<p>How we summarize depends on whether the data is <strong>discrete</strong> or <strong>continuous</strong>.</p>
 
 <ul>
 <li>Discrete means &ldquo;individually separate and distinct.&rdquo;</li>
@@ -3539,7 +3539,7 @@ review_data</pre>
 
 <p>This is just a data frame, and we know how to join data frames!</p>
 
-<p>An <strong>anti join</strong> keeps rows that <em>don’t</em> have matching IDs and just the columns from the &ldquo;left&rdquo; data frame. (It’s nearly the opposite of an inner join.)</p>
+<p>An <strong>anti join</strong> returns rows that <em>don’t</em> have matching IDs, keeping only the columns from the &ldquo;left&rdquo; data frame. (Think of it as the opposite of an inner join.)</p>
 
 <pre class = 'prettyprint lang-r'>review_data &lt;- review_data |&gt;
   anti_join(tidytext::stop_words, join_by(word))
