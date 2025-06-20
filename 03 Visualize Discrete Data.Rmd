@@ -19,7 +19,6 @@ David A. Bednar - [BYU Speeches, April 16th, 2021](https://speeches.byu.edu/talk
 
 Remember that you grade your own submitted exercises using the rubric specified in each posted exercise solution, adding comments (using the comment feature for Word documents) where your solution differs from the posted solution.
 
-
 ## Marketing Analytics Process
 
 <center>
@@ -29,6 +28,7 @@ Remember that you grade your own submitted exercises using the rubric specified 
 ---
 
 ![](Figures/hex_dplyr-ggplot2.png){width=900px}
+
 ## Motivating Example
 
 Imagine your manager at Patagonia is happy with your ability to filter and organize data, but she wants you to find another way to share your findings with stakeholders in a presentation you'll be giving tomorrow. What are some concise and effective ways that you could communicate data about Patagonia's customer base?

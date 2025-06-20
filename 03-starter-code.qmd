@@ -239,3 +239,12 @@ review_data |>
   ggplot(aes(x = n, y = word)) +
   geom_col()
 ```
+
+### Live Coding Exercise
+
+Going back to our prompt from the beginning, imagine your manager specifically wants you to present on the customers in the South region, and provide a summary of what these customers are like, and what matters to them. How could we apply what we've learned today to accomplish this?
+
+```{r}
+
+```
+
