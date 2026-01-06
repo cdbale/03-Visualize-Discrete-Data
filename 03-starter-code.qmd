@@ -12,14 +12,13 @@ editor: visual
 
 # Load the tidyverse.
 
-library(tidyverse)
 ```
 
 ```{r}
 
 # Read in the customer data, and view it.
 
-customer_data <- read_csv("customer_data.csv", show_col_types = FALSE)
+
 glimpse(customer_data)
 ```
 
@@ -27,7 +26,7 @@ glimpse(customer_data)
 
 ```{r}
 
-# This code counts how many customer reside in each region.
+# This code counts how many customers reside in each region.
 
 customer_data |> 
   count(region)
@@ -37,8 +36,6 @@ customer_data |>
 
 # This code returns a cross-tab of region and college degree status.
 
-customer_data |> 
-  count(region, college_degree)
 ```
 
 ### Your Turn!
@@ -135,6 +132,29 @@ customer_data |>
   )
 ```
 
+```{r}
+
+# This code adds the 'theme' function to the previous plot, which allows us to rotate 
+# and shift the x-axis labels.
+
+customer_data |> 
+  count(region, college_degree, gender) |> 
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  facet_wrap(~ gender) +
+  labs(
+    title = "Proportion of Customers with College Degrees by Region and Gender",
+    subtitle = "Based on 10,531 Customers in the CRM Database",
+    x = "Region",
+    y = "Proportion"
+  ) +
+  scale_fill_manual(
+    name = "College Degree",
+    values = c("cornflowerblue", "navy")
+  ) +
+  theme(axis.text.x = element_text(angle = 45, vjust=0.5))
+```
+
 ### Your Turn!
 
 ```{r}
@@ -152,7 +172,9 @@ customer_data |>
 
 ```{r}
 
-# First, click the Tools menu above and install the tidytext package.
+# First, install the tidytext package.
+
+#install.packages('tidytext')
 
 library(tidytext)
 ```
@@ -242,9 +264,8 @@ review_data |>
 
 ### Live Coding Exercise
 
-Going back to our prompt from the beginning, imagine your manager specifically wants you to present on the customers in the South region, and provide a summary of what these customers are like, and what matters to them. How could we apply what we've learned today to accomplish this?
+Going back to our prompt from the beginning, imagine Patagonia management is interested in a breakdown of the type of customers, and their preferences, in the `South` region. What type of visualization could we do to accomplish this?
 
 ```{r}
 
 ```
-

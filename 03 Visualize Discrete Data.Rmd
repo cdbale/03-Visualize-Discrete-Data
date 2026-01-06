@@ -1,6 +1,6 @@
 ---
 title: "Visualize Discrete Data"
-subtitle: "MKTG 411 Marketing Analytics"
+subtitle: "MCB Consulting Group (MKTG 411)"
 output: 
   ioslides_presentation:
     widescreen: true
@@ -31,12 +31,11 @@ Remember that you grade your own submitted exercises using the rubric specified 
 
 ## Motivating Example
 
-Imagine your manager at Patagonia is happy with your ability to filter and organize data, but she wants you to find another way to share your findings with stakeholders in a presentation you'll be giving tomorrow. What are some concise and effective ways that you could communicate data about Patagonia's customer base?
-
+Imagine our client, Patagonia, has been happy with the results we've obtained from transforming the data (filtering, mutating, joining, slicing, etc.). Suppose that your results have been shared with the technical team, but that stakeholders are asking for a presentation on your results. What are some concise and effective ways that you could communicate data-based insights about Patagonia's customer base?
 
 ## Discrete Data
 
-Remember that summarizing data is initially all about discovery, the heart of **exploratory data analysis**.
+Visualizations are a form of **summarizing data**. Summarizing data is initially all about discovery, the heart of **exploratory data analysis**.
 
 - Computing **statistics** (i.e., numerical summaries).
 - **Visualizing** data (i.e., graphical summaries).
@@ -98,7 +97,17 @@ customer_data |>
 
 Write code that first filters the data to only unmarried customers, then counts the customers in each region (you will need to use code we learned in the last lecture to do this!)
 
-## Solution
+## Here's What Your Output Should Be
+
+```{r, echo=FALSE}
+
+customer_data |>
+  filter(married == 'No') |>
+  count(region)
+
+```
+
+## Here's The Solution
 
 ```{r}
 
@@ -107,8 +116,6 @@ customer_data |>
   count(region)
 
 ```
-
-
 
 ## Visualize Data
 
@@ -149,7 +156,7 @@ customer_data |>
 
 Visualize our second summary by adding the aesthetic `fill = college_degree`.
 
-The geom `position` argument of the `geom_col()` function is set to `stack` by default. Try `fill` instead.
+The `position` argument of the `geom_col()` function is set to `stack` by default. Try `fill` instead.
 
 ---
 
@@ -171,7 +178,7 @@ customer_data |>
 
 ## Facets
 
-Facets allow us to visualize by another discrete variable. For example, is this relationship different depending on `gender`?
+Facets allow us to visualize by another discrete variable. For example, we can examine whether the relationship between `college_degree` and `region` is different depending on `gender`.
 
 ```{r eval=FALSE}
 customer_data |> 
@@ -193,7 +200,7 @@ customer_data |>
 
 ## Labels and Scales
 
-It's no longer a count on the y-axis. Let's change the labels.
+Notice that the previous plot no longer has a count on the y-axis - it is a proportion. Let's change the labels.
 
 ```{r eval=FALSE}
 customer_data |> 
@@ -267,6 +274,67 @@ customer_data |>
   )
 ```
 
+## What Else Should We Change? Are All Plot Aspects Legible?
+
+```{r echo=FALSE}
+customer_data |> 
+  count(region, college_degree, gender) |> 
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  facet_wrap(~ gender) +
+  labs(
+    title = "Proportion of Customers with College Degrees by Region and Gender",
+    subtitle = "Based on 10,531 Customers in the CRM Database",
+    x = "Region",
+    y = "Proportion"
+  ) +
+  scale_fill_manual(
+    name = "College Degree",
+    values = c("cornflowerblue", "navy")
+  )
+```
+
+## Let's Rotate the X-axis Labels
+
+```{r, eval=FALSE}
+customer_data |> 
+  count(region, college_degree, gender) |> 
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  facet_wrap(~ gender) +
+  labs(
+    title = "Proportion of Customers with College Degrees by Region and Gender",
+    subtitle = "Based on 10,531 Customers in the CRM Database",
+    x = "Region",
+    y = "Proportion"
+  ) +
+  scale_fill_manual(
+    name = "College Degree",
+    values = c("cornflowerblue", "navy")
+  ) +
+  theme(axis.text.x = element_text(angle = 45, vjust=0.5))
+```
+
+---
+
+```{r, echo=FALSE}
+customer_data |> 
+  count(region, college_degree, gender) |> 
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  facet_wrap(~ gender) +
+  labs(
+    title = "Proportion of Customers with College Degrees by Region and Gender",
+    subtitle = "Based on 10,531 Customers in the CRM Database",
+    x = "Region",
+    y = "Proportion"
+  ) +
+  scale_fill_manual(
+    name = "College Degree",
+    values = c("cornflowerblue", "navy")
+  ) +
+  theme(axis.text.x = element_text(angle = 45, vjust=0.5))
+```
 
 ## Your Turn!
 
@@ -377,6 +445,10 @@ Commonly used words aren’t very informative and are referred to as **stop word
 stop_words
 ```
 
+## Pause! How Could We Remove Stop Words?
+
+Remember, we have two data frames. What kind of function could we apply to these data frames to remove rows containing stop words in our data?
+
 ---
 
 This is just a data frame, and we know how to join data frames!
@@ -451,7 +523,7 @@ review_data |>
 
 ## Live Coding
 
-Going back to our prompt from the beginning, imagine your manager specifically wants you to present on the customers in the South region, and provide a summary of what these customers are like, and what matters to them. How could we apply what we've learned today to accomplish this?
+Going back to our prompt from the beginning, imagine Patagonia management is interested in a breakdown of the type of customers, and their preferences, in the `South` region. What type of visualization could we do to accomplish this?
 
 ## Wrapping Up
 

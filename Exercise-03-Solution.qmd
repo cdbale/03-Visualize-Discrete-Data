@@ -22,7 +22,7 @@ Five points total, one point each for:
 
 \- Providing at least one visualization.
 
-\- Following good coding conventions (provide feedback on this point).
+\- Following good coding conventions (e.g., using pipe operators, including comments).
 
 \- Submitting a rendered Word doc.
 
