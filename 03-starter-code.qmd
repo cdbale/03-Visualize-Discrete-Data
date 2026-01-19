@@ -34,7 +34,7 @@ customer_data |>
 
 ```{r}
 
-# This code returns a cross-tab of region and college degree status.
+# write code that returns a cross-tab of region and college degree status.
 
 ```
 

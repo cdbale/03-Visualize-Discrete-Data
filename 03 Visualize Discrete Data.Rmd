@@ -43,7 +43,7 @@ Visualizations are a form of **summarizing data**. Summarizing data is initially
 How we summarize depends on whether the data is **discrete** or **continuous**.
 
 - Discrete means "individually separate and distinct."
-- Discrete data are also called *qualitative* or *categorical*.
+- Discrete data are also called *categorical*.
 
 ---
 
