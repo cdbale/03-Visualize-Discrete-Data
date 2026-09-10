@@ -418,3 +418,60 @@ Completion evidence for items 5-7 - Status: Verified (2026-09-09)
    Local uploaded QMD SHA256:
    starter f1135563d2540d4fa1fc0fd95234adf93deedbcf72b3e4776f02def2699c7d0a
    solution 0dbd322253babce1fbd45dbfbe0ca4811383bc6120aaaa9aeadf41504c600e9a
+
+
+GitHub completion and final audit - 2026-09-09
+Decision: Explicit user approval of item 8 and the full remaining checklist.
+Original item text retained for history:
+8. Commit and push the approved lecture update.
+   Target: this lecture repository, main -> origin/main.
+   Remote: https://github.com/cdbale/03-Visualize-Discrete-Data.git
+   Status: In progress — explicitly approved by the user on 2026-09-09.
+   Approved local changes and completion records are ready to commit and push.
+   Decision: Standing authorized completion step for an approved update;
+   Approve / Alter / Reject the associated update scope.
+   Evidence: the initial working tree was clean. Local main, origin/main and a
+   live read-only GitHub branch query resolve to
+   3fea5cc265c0248dcf0788d2051c091f65d594f5 ("update lecture").
+   Proposed completion: inspect and commit only approved lecture changes and
+   the associated tracking records, push main to its configured origin, then
+   verify local HEAD against the live remote and inspect remaining working changes.
+   The tracking files created in this review have not yet been committed or pushed.
+   All approved local and Canvas work is verified; GitHub publication is next.
+   Dependencies: all approved local/Canvas items must be reconciled first. Move
+   completed task text to Chat Completed only after verification, appending and
+   verifying there before removing an active entry here.
+
+
+8. Completion status: Verified.
+Committed the eight approved lecture/material/tracking files as
+718d10769202be47acddd7511296587c3a416060
+("Update discrete-data lecture and aligned exercise materials") and pushed
+main to origin/main at https://github.com/cdbale/03-Visualize-Discrete-Data.git.
+Verified local HEAD, origin/main, and live ls-remote refs/heads/main all match.
+Only unrelated .Rhistory remained untracked; it was not staged or changed.
+This completion entry and the cleared active checklist are committed/pushed
+in a subsequent tracking-only commit, with a final remote equality check.
+
+Final checklist audit:
+1. Verified: learning goals, discrete/text/factor terminology, readings.
+2. Verified: aligned client brief, rubric, worked solution QMD and Word output.
+3. Verified: starter setup notes and intentional gaps.
+4. Verified: two eligible prior-lecture inspection steps replaced by placeholders.
+5. Verified: finalized Exercise 3 description saved in Canvas.
+6. Verified: Grade Exercise 3 rubric-location note saved once in Canvas.
+7. Verified: starter QMD, solution QMD and user-rendered HTML replaced in Canvas;
+   existing module links and publication/release settings verified.
+8. Verified: approved content pushed; local/tracking/live branch hashes match.
+9. Verified: faceted proportion exercise and contrasting count conclusions in
+   slide source, starter, and the uploaded rendered HTML.
+10. Verified: obsolete stop-word pause removed; subsequent content retained.
+11. Verified: size and student-height factor examples before word counts.
+12. Verified: natural slide splits present in uploaded rendered HTML.
+13. Verified: factor definitions after word counts and immediately before Live Coding.
+Re-read the active checklist and prior completion records; inspected current
+source/material diffs and Canvas file/module state. Source and tracking
+whitespace checks pass. Prior recorded R and Word-output checks remain valid.
+The user-rendered named HTML is identical to index.html; generated HTML
+package-output trailing whitespace was preserved. No source edits followed
+these checks. No approved tasks remain open after tracking reconciliation.
