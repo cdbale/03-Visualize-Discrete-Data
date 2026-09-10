@@ -1,0 +1,420 @@
+03-Visualize-Discrete-Data — Completed work
+
+R0. Preliminary review and proposal, 2026-09-09
+Decision: Authorized by invocation of update-411-lecture and the skill's
+standing authorization to create and maintain lecture tracking files.
+Status: Verified.
+
+Confirmed repository boundary with git rev-parse --show-toplevel:
+C:/Users/Cam/Repos/Teaching/MKTG-411/03-Visualize-Discrete-Data
+The repository contains the authoritative 03 Visualize Discrete Data.Rmd.
+No existing Chat To Do or Chat Completed files were present. No applicable
+AGENTS.md, lecture README, build script, or tracked workflow was found.
+
+Inventory and relationships:
+- 03 Visualize Discrete Data.Rmd: ioslides_presentation, widescreen, style.css.
+- 03-Visualize-Discrete-Data.html and index.html: existing generated slides;
+  identical SHA-256 711963569A72701B6E8B7F10D5EB079F44D83A86834F9139098BECB995D7FEBA.
+  Inspected relevant existing HTML text; did not render, knit or visually re-audit
+  every slide. Both retain the factor wording and existing Exercise 3 prompt.
+- Exercise instructions are the final Rmd slide, repeated in the solution QMD.
+- Exercise-03-Solution.qmd and Exercise-03-Solution.docx: both inspected as text;
+  both contain the same existing five-point rubric and worked examples.
+- 03-starter-code.qmd: Quarto -> Word; lecture practice, two Your Turn blocks,
+  and an empty Live Coding Exercise. No separate Exercise 3 starter was found.
+- customer_data.csv: 10,531 records, 14 columns; Northeast has 3,224 records.
+  Gender categories are Female (5,219), Male (4,214), Other (1,098).
+  Counts support existing plot subtitles and the three-facet comment.
+  Customer data is byte-identical to lecture 02's customer_data.csv.
+- store_transactions.csv: included locally, but not referenced by lecture 03's
+  slide/starter/solution code; retain it, with no proposed cleanup.
+- Figures: anti_join.gif, hex_background.png, hex_dplyr-ggplot2.png,
+  monsters_ggplot2-exploratory.png, process_visualize.png. Referenced local assets
+  exist. style.css uses hex_background.png for the title-slide background.
+- Prior lecture 01 materials provide the analytics-process context. Lecture 02
+  source and starter establish import, inspection, data transformation, joins,
+  pipes, and the workflow for Quarto documents rendered into Word.
+
+Read-only Canvas review through the Chrome Browser extension:
+- MKTG 411-001: Marketing Analytics, 2026 Fall, course 38688; assignment pages
+  also show MKTG 411-002 section deadlines.
+- Exercise 3: assignment 1452125; description empty; five points; file upload.
+- Grade Exercise 3: assignment 1452143; existing self-grading instructions,
+  without a rubric-location note; one point; file upload.
+- Starter: file 13545182, module item 3180610; published; 5.66 KB.
+- Solution QMD: file 13545235, module item 3180614; 1.8 KB; module lists release
+  after Sep 22 at 5pm. Canvas cannot preview either QMD. Remote file contents
+  were not downloaded or compared; attachment existence/targets were verified.
+- Module placement pairs Exercise 3 with its due-date session under Visualize
+  Continuous Data; use assignment names and IDs, not header position alone.
+- Existing 03 slide link and HTML attachment are present in the modules.
+
+Verified strengths: the Live Coding prompt leaves customer types/preferences
+open to interpretation and prescribes no solution code or operation sequence.
+The lecture already ends with Exercise 3. Preserve those features.
+
+Git baseline: initially clean main at 3fea5cc265c0248dcf0788d2051c091f65d594f5;
+origin/main matches. A live read-only ls-remote query also confirmed that commit
+on GitHub. No commit or push was performed in this review.
+
+Prepared eight numbered decision items in Chat To Do with evidence, proposed
+scope, dependencies, statuses, and a separate user-requested-changes section.
+Only the two tracking files were created. All proposed implementation remains
+pending; this completed review does not mean the lecture update is complete.
+
+
+Implementation of approved items 1-4 — 2026-09-09
+Status: Verified for each of items 1, 2, 3, and 4.
+Decision: User approved items 1, 3, and 4, and approved item 2 with adjustments.
+The original proposals below are retained as review history; their PENDING
+labels and original item-2 wording are superseded by this decision and the
+user's instructions and completion notes that follow.
+
+1. Correct and orient the slide source.
+   Target: 03 Visualize Discrete Data.Rmd, original lines 10-18, 36-46,
+   395-397, 495-500, and 528-544.
+   Status: Needs update. Decision: PENDING — Approve / Alter / Reject.
+   Evidence and proposed changes:
+   a. There is no Today's Learning Goals slide. Add it immediately after the
+      opening Spiritual Thought, before Grading Exercises. Suggested goals:
+      - Summarize categorical customer characteristics with counts and cross-tabs.
+      - Compare customer groups using bar charts, proportions, and facets.
+      - Improve chart labels, colors, and category order.
+      - Turn review text into tokens and visualize frequent informative words.
+   b. The Discrete Data slide equates discrete with categorical. Clarify that
+      this lecture focuses on categorical variables; discrete numeric counts
+      also exist. In Text Data, explain that tokenization creates word categories
+      from unstructured text. Preserve the lecture title and taught examples.
+   c. Factors currently says levels are numeric values. Explain that factors use
+      integer codes internally and character levels for category names; the
+      level sequence controls plotting order. Distinguish plotting order from
+      declaring an ordered factor without adding a separate modeling lesson.
+      Source: https://stat.ethz.ch/R-manual/R-devel/library/base/html/factor.html
+   d. Wrapping Up lists R for Data Science (2e), Chapters 2 and 18. Chapter 2 is
+      Workflow: basics; Chapter 18 is Missing values. Replace the main reading
+      pointers with linked Chapters 1 (Data visualization), 9 (Layers), and
+      16 (Factors); retain 18 only as optional missing-value background.
+      Source: https://r4ds.hadley.nz/
+   Dependencies: learning goals must agree with item 2. Preserve the existing
+   open-ended Live Coding prompt (line 524), the Your Turn practice examples,
+   and the final Exercise 3 placement. No slide rendering is authorized.
+
+2. Make Exercise 3 a focused client brief and align its solution.
+   Targets: final Exercise 3 in 03 Visualize Discrete Data.Rmd, lines 546-555;
+   Exercise-03-Solution.qmd, lines 7-68; Exercise-03-Solution.docx.
+   Status: Needs update. Decision: PENDING — Approve / Alter / Reject.
+   Evidence: the exercise starts with Load/Import steps and asks for an
+   "interesting" summary and chart without a client question or interpretation.
+   The solution turns continuous income into high_income even though the prompt
+   says discrete variables only; its text chart answers a different question.
+   Both local solution formats contain the existing five-point rubric.
+   Proposed replacement student instructions:
+   "Patagonia wants to understand how customer profiles differ across U.S.
+   regions before planning regional marketing messages. Using customer_data.csv,
+   choose one categorical customer characteristic, such as college-degree or
+   marital status. Prepare a count table and a clearly labeled chart comparing
+   that characteristic across regions. Explain one finding that could inform
+   regional messaging and one limitation of that conclusion. Choose the chart
+   form and analysis approach yourself. Submit a Word document rendered from
+   Quarto containing your code, table, chart, and interpretation. Use the
+   tidyverse and the coding conventions practiced in class."
+   Update the solution's repeated prompt and worked example to answer this same
+   brief using college-degree status. Explain counts versus proportions in its
+   interpretation. Keep the five existing one-point criteria and total; clarify
+   that multiple defensible analyses can earn credit. Do not introduce additional
+   scored criteria. Refresh the local solution DOCX from the approved solution
+   source and inspect it; this is separate from rendering the slide deck.
+   Dependencies: final wording feeds item 5; revised solution feeds items 6-7.
+   All required data analysis operations are taught in lectures 02 and 03.
+
+3. Clarify starter-code setup and its intentional blanks.
+   Target: 03-starter-code.qmd, lines 9-23 and 204-213.
+   Status: Needs update. Decision: PENDING — Approve / Alter / Reject.
+   Evidence: loading tidyverse and importing customer_data are already TODOs,
+   but the next supplied statement is glimpse(customer_data). Running that chunk
+   before completing the import produces an object-not-found error. The file
+   does not explain its deliberate gaps or remind students where to save the CSV.
+   Proposed change: add a short note to keep the QMD and customer_data.csv in the
+   same lecture folder and complete TODOs in order before running dependent
+   chunks. Separate the import TODO from the inspection step (see item 4).
+   Describe drop_na(word) as removing missing tokens, not universally removing
+   "blank reviews." Retain the new counting, plotting, tokenization, missing-value,
+   anti-join, and factor code. Retain both Your Turn blocks and the existing
+   open-ended Live Coding Exercise with its empty chunk.
+   Verification after approval: parse R chunks without rendering; check filenames,
+   referenced columns, setup after filling intentional gaps in a temporary
+   verification environment, and the complete statements around the gaps.
+   Dependencies: item 4 determines final inspection placeholders; item 7 uploads
+   the finalized starter file. This is lecture practice, not a completed answer
+   to the separate Exercise 3 client brief.
+
+4. Remove two of four eligible prior-lecture inspection steps.
+   Target: 03-starter-code.qmd, original lines 22, 190, 213, and 222.
+   Status: Needs update. Decision: PENDING — Approve / Alter / Reject.
+   Prior-material evidence: lecture 02 teaches printing a data frame and
+   glimpse() (slide source lines 143-152 and starter Data Frames section), plus
+   import, filtering, selection, arrangement, slicing, mutation, joins and pipes.
+   In lecture 03, most complete pipelines combine those operations with NEW
+   counting, plotting or text concepts; do not count those as eligible whole
+   prior-only steps, and do not strip individual verbs from them.
+   Eligible complete steps are four standalone data inspections:
+   - glimpse(customer_data), line 22;
+   - display review_data after tokenization, line 190;
+   - display review_data after missing-token removal, line 213;
+   - display stop_words, line 222.
+   Proposed selection: replace the first and third inspections (2/4 = 50%) with
+   separate intact empty R chunks containing outcome-based comments:
+   "Inspect the imported customer records and their column types."
+   "Inspect the remaining review tokens after missing values have been removed."
+   Retain the second and fourth displays to support the first introduction of
+   tokenized data and the stop-word table. Preserve all complete transformation
+   statements; extract an inspection into its own chunk before replacing it,
+   rather than leaving a partially implemented transformation block.
+   Existing package-load/import blanks are not newly removed completed steps.
+   Your Turn content is excluded. This is a modest reduction because the file
+   already omits familiar setup and most other code teaches new concepts.
+   Dependencies: implement with item 3 and record actual selected steps before
+   item 7. If a larger reduction is desired, discuss a different scope instead
+   of treating new lecture content as previously taught.
+
+User instructions (verbatim, moved from the requested-changes section):
+- Approve Change 1 above.
+- Approve Change 2, with slight adjustments. The proposed replacement student instructions should not provide examples of discrete variables, such as college degree or marital status. One of the points in the rubric should depend on the student correctly picking a discrete variable, and should list out the options.
+- Approve Change 3
+- Approve Change 4
+
+Make the above changes, and then we'll address the remaining suggestions.
+
+Completion notes and evidence:
+1. Verified: added Today's Learning Goals immediately after Spiritual Thought;
+   clarified discrete/categorical and tokenization language; corrected factors;
+   updated linked R4DS chapters. The final activity remains Exercise 3 and the
+   open-ended Live Coding and Your Turn sections are unchanged. Inspected the
+   Rmd source and diff; parsed 31 R chunks. No slide rendering was run.
+2. Verified: identical student brief in Rmd and solution QMD, with no examples
+   of variables in that brief. The five-point rubric replaces loading tidyverse
+   with correct discrete-variable selection; lists gender, married,
+   college_degree, state, star_rating as ordered categories, and birth_year
+   analyzed as distinct year categories. Region is the comparison grouping.
+   The other points cover counts, visualization, code conventions, and the
+   rendered report. Tidyverse use remains within code conventions. This
+   supersedes the original proposal to preserve all five original criteria.
+   The worked example compares degree status across regions and explains
+   counts/proportions, the South's approximately 20% versus 79-81% elsewhere,
+   and limits on campaign conclusions. Three solution chunks ran successfully.
+   Refreshed Exercise-03-Solution.docx using Quarto's native executable; visually
+   inspected all three pages. The packaged render_docx.py failed because
+   LibreOffice is unavailable. Used hidden Word PDF export and bundled Poppler
+   for equivalent full-page visual QA. Normalized title/headings to black and
+   explicit Letter page size in the DOCX. No slide output was regenerated.
+3. Verified: added folder/setup and intentional-gap guidance; separated import
+   and inspection; corrected missing-token wording. Parsed 24 starter chunks
+   and executed supplied code with package/data setup supplied only in a
+   temporary verification environment. All 10 starter plots built successfully.
+4. Verified: removed exactly two of the four eligible whole inspection steps:
+   glimpse(customer_data) and displaying review_data after missing-token removal.
+   Replaced each with its own intact empty commented chunk. Retained the first
+   tokenized-data display and stop_words display. New transformation/plot code
+   and both Your Turn blocks were preserved.
+
+Final checks: slide/solution prompt parity; five rubric points; DOCX content
+matches the revised brief and findings; preserved activities; exact selected
+starter gaps; git diff --check passed. index.html and the named slide HTML
+retain their baseline SHA-256 hashes. R emitted locale startup warnings but
+all content checks passed. Temporary QA files are outside the lecture repo.
+
+Items 5-8 remain deferred for discussion under the user's explicit direction.
+No Canvas changes, upload, commit or push was performed. The full lecture
+update remains unfinished pending those items.
+
+
+Additional requested slide and starter examples — 2026-09-09
+Decision: Explicitly requested in Chat To Do and authorized by the user's
+instruction to make the newly requested changes.
+
+User requests (verbatim):
+- Add a "Your Turn" exercise after slide 26 that requires students to create another faceted bar chart (with proportions) from customer data. Include it in both the slides and the starter code. Display the output in the slides before displaying the solution. Construct the example such that if we plot raw counts instead of proportions, it meaningfully changes conclusions we draw from the chart. You might have to try plotting different variables to find something that fits this criteria.
+- Remove current slide 42 "Pause! How Could We Remove Stop Words?"
+- Add a simple example after current slide 46 to explain factors. I'm thinking something like "small", "medium", "large". Then, we could do another example where we show three hypothetical student names, and we want to order the students based on their height, we could use fct_reorder()
+- Then follow those examples up with current slide 47
+
+9. New faceted-proportion Your Turn after the former slide 26.
+Status: Verified.
+Targets: Rmd after the region/degree/gender faceted output, and corresponding
+starter position immediately before Labels and Scales.
+Implemented the campaign scenario with region on the horizontal axis,
+college_degree as fill, and married as facets. The prompt asks students to
+compare concentration with audience size. Slides show the proportion chart
+with echo=FALSE before the displayed solution code, followed by a raw-count
+chart and interpretation. The starter contains the matching prompt and two
+empty commented chunks, without a completed solution.
+Evidence from actual customer_data.csv:
+- married=No: West has 544 customers without degrees out of 2,783 (19.5%);
+  South has 461 out of 587 (78.5%).
+- married=Yes: West has 445 out of 2,312 (19.2%);
+  South has 430 out of 524 (82.1%).
+The West ranks first in counts and the South ranks first in proportions in
+both facets. Verified these maxima programmatically and inspected standalone
+previews of both charts. Adjusted the following labels-slide transition so
+it refers back to the earlier region/gender proportion plot accurately.
+
+10. Remove the former slide 42 pause prompt.
+Status: Verified.
+Removed only the Pause! How Could We Remove Stop Words? heading and question.
+Retained the anti-join definition, code, stop-word table, and animation.
+
+11. Add simple factors and fct_reorder examples, then retain former slide 47.
+Status: Verified.
+Inserted examples immediately after the former slide 46 unreadable word-count
+plot and before the existing Factors slide:
+- sort character sizes alphabetically, then set factor levels small, medium,
+  large and show sorting by the specified category sequence;
+- create three hypothetical students (Alex 178 cm, Bailey 165 cm, Casey 190 cm),
+  reorder their name factor by height, and show the resulting levels;
+- plot the students in the resulting Bailey, Alex, Casey order.
+Matching examples and runnable code are in the starter. Verified that factor
+levels and sorted sizes have the intended order and that student row order
+remains Alex, Bailey, Casey. Inspected the height-chart preview. The existing
+Factors explanation, top-ten-word code and output follow these examples
+unchanged, as requested.
+
+Verification: all 38 slide R chunks parsed; all 30 starter chunks checked
+with existing setup TODOs supplied only in the verification environment;
+11 starter plots built. New proportion bars reach 1 in every facet/group.
+R startup emitted locale warnings, but every check passed. Standalone chart
+previews were generated outside the lecture repo; no slide render/knit ran.
+Source-only git diff --check passed. The user's pre-existing modified HTML
+has trailing whitespace in a rendered package message; it was left untouched.
+Both HTML files and both exercise solution files match their turn-start
+bytes. New source changes mean the rendered slides await a future render.
+
+The four user bullets are complete under items 9-11 (item 11 also covers the
+requested transition to former slide 47). Items 5-8 remain deferred; no Canvas
+changes, uploads, commits or pushes were performed.
+
+
+Factor slide pacing and sequencing — 2026-09-09
+Decision: Explicitly requested in Chat To Do and authorized by the user's
+instruction to make the new updates.
+
+User requests (verbatim):
+- Current slides 50 and 51 currently overflow and aren't visible. Split them into separate slides at natural break points.
+- Move the description of factors on slide 53 to the last slide prior to the live coding. In other words, I want continuity between the simple examples you just made and the application of the concept to the word counts. Then we'll give the definitions and descriptions that are currently on slide 53.
+
+12. Split overflowing former slides 50 and 51 at natural breaks.
+Status: Verified by source and diff inspection; no slide render performed.
+Target: 03 Visualize Discrete Data.Rmd, simple factor examples.
+- Former slide 50 is now two slides: character sizes and alphabetical sorting,
+  then setting factor levels and sorting by the intended size order.
+- Former slide 51 is now two slides: introducing the hypothetical students and
+  creating their data, then fct_reorder(), the resulting levels, and explanation.
+The splits separate conceptually complete steps and reduce the amount of code,
+output, and prose shown together. No code statements or outputs were removed.
+
+13. Place factor definitions after the word-count application.
+Status: Verified by source and diff inspection; no slide render performed.
+Target: 03 Visualize Discrete Data.Rmd, former slide 53 and before Live Coding.
+Renamed the application slide Apply Factor Order to Word Counts. Moved the
+original definition paragraph and all three bullets, verbatim, to a separate
+Factors | What a Factor Stores slide immediately before Live Coding.
+Sequence: size examples -> student-height examples/chart -> word-count code
+and output -> factor definitions -> Live Coding.
+
+Verification: balanced R chunk fences; concatenated R code remains identical
+apart from whitespace, in the same execution order; exactly one additional R
+chunk boundary; definition wording preserved exactly; Live Coding and all later
+content unchanged. Source-only git diff --check passed. Starter, both solution
+files, and both existing HTML files retain their turn-start hashes. The user
+requested slide layout changes only, so starter code required no modification.
+No slide render/knit was performed; rendered overflow has not been visually
+rechecked. Existing rendered output awaits a future user-requested render.
+No Canvas changes, uploads, commits or pushes; items 5-8 remain deferred.
+
+
+
+Approved Canvas publication - 2026-09-09
+Decision: User explicitly approved points 5, 6, 7, and 8, and upload of the
+user-rendered HTML slides in addition to the two QMD files in point 7.
+This approval supersedes the historical deferred/pending decisions below.
+The user rendered the slides; no slide-generation command was run by the agent.
+
+Original item text retained for history:
+5. Post the finalized Exercise 3 instructions in Canvas.
+   Target: MKTG 411-001: Marketing Analytics, 2026 Fall, course 38688;
+   Exercise 3, assignment 1452125.
+   https://byu.instructure.com/courses/38688/assignments/1452125
+   Status: Needs update — deferred by user for later discussion. Decision: PENDING — Approve / Alter / Reject.
+   Evidence: the live description says "No additional details were added for
+   this assignment." It is a five-point file-upload assignment. The displayed
+   section deadlines are Sep 22 at 2pm and 3:30pm, with availability ending Sep 29.
+   Proposed change: post the final item-2 client brief and deliverables. Include
+   a customer_data.csv reference and, if useful, a link to the finalized lecture
+   starter attachment as a class reference. Preserve settings and section dates.
+   Dependencies: item 2 is finalized locally; a starter link must use item 7's saved
+   attachment. Verify the saved description through the Chrome extension.
+
+6. Add the rubric-location note to Grade Exercise 3.
+   Target: course 38688, Grade Exercise 3, assignment 1452143.
+   https://byu.instructure.com/courses/38688/assignments/1452143
+   Status: Needs update — deferred by user for later discussion. Decision: PENDING — Approve / Alter / Reject.
+   Evidence: Canvas asks for the graded file, a grade at the top, and comments
+   explaining differences from the posted solution. It does not identify the
+   rubric location. The rubric is present in Exercise-03-Solution.qmd and DOCX.
+   Proposed appended text: "The grading rubric is included in the posted
+   Exercise-03-Solution.qmd file. Use that rubric to grade your submission."
+   Preserve all existing instructions, one-point setting, and Sep 29 section
+   deadlines. Avoid a duplicate note; verify after saving.
+   Dependencies: item 2 finalized the five-point rubric with the user's revised
+   variable-selection criterion; item 7 must synchronize the posted solution.
+
+7. Synchronize approved Canvas attachments.
+   Targets in course 38688:
+   - 03-starter-code.qmd: file 13545182, module item 3180610.
+     https://byu.instructure.com/courses/38688/files/13545182
+   - Exercise-03-Solution.qmd: file 13545235, module item 3180614.
+     https://byu.instructure.com/courses/38688/files/13545235
+   Status: Needs update — local edits verified; Canvas upload deferred by user.
+   Decision: PENDING — Approve / Alter / Reject (starter and/or solution).
+   Evidence: both named attachments exist. Canvas shows the starter as 5.66 KB
+   and the solution as 1.8 KB; neither QMD has a Canvas content preview, so remote
+   bytes were not compared. Starter is published. The solution is available
+   after Sep 22 at 5pm. Do not infer content equality from matching filenames.
+   Proposed change: replace the starter after items 3-4 and the solution after
+   item 2, preserving module references and the solution's release timing.
+   Verify saved filenames/content and links; avoid duplicate versions. Use the
+   Chrome extension. The solution upload is an explicit proposed dependency of
+   item 2, not an already authorized incidental edit.
+   Existing Canvas slide HTML and GitHub Pages HTML will remain unchanged unless
+   slide rendering/publication is explicitly requested. Do not call source edits
+   a refresh of student-facing rendered slides.
+
+
+Completion evidence for items 5-7 - Status: Verified (2026-09-09)
+5. Saved the finalized three-paragraph Patagonia regional-profile brief to
+   Exercise 3, course 38688, assignment 1452125. Reopened the saved assignment
+   and verified customer_data.csv, count table, chart, interpretation and
+   limitation, Word/Quarto deliverable, tidyverse and coding-convention text.
+   Preserved published status, 5 points, file uploads, Sep 22 section deadlines
+   (2pm / 3:30pm), and Sep 29 availability end times. No optional starter link
+   was necessary; the existing lecture module provides the class reference.
+6. Appended the exact rubric-location note to Grade Exercise 3, assignment
+   1452143. Verified one copy after saving, retaining original instructions,
+   published status, 1 point, file uploads, and Sep 29 section deadlines.
+7. Uploaded each finalized local file through Chrome's Canvas Files page and
+   chose Replace in the existing-filename dialog. Verified one current entry
+   for each filename, updated sizes/timestamps, and each existing module link.
+   Canvas replaced file IDs and automatically preserved module references:
+   - 03-starter-code.qmd: file 13713240, module 3180610; 7.9 KB; published.
+   - Exercise-03-Solution.qmd: file 13713256, module 3180614; 4.22 KB;
+     still available after Sep 22 at 5pm.
+   - 03-Visualize-Discrete-Data.html: file 13713263, module 3180609;
+     4.7 MB; published. This additional upload was explicitly approved.
+   Opened all three module destinations. Canvas QMD pages show the new file
+   IDs and sizes but offer no text preview; remote QMD bytes were not compared.
+   The HTML preview directly displays the new faceted exercise, four split
+   factor slides, word-count application, factor definition before Live Coding,
+   and finalized Exercise 3 brief. Local named HTML and index.html are identical
+   (4,722,789 bytes; SHA256 0e0b2d2ee94ae8c081153ffc94ee15474b7afc2cd0f5208770e94c417e641cc1).
+   Local uploaded QMD SHA256:
+   starter f1135563d2540d4fa1fc0fd95234adf93deedbcf72b3e4776f02def2699c7d0a
+   solution 0dbd322253babce1fbd45dbfbe0ca4811383bc6120aaaa9aeadf41504c600e9a

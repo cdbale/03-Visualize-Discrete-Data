@@ -1,0 +1,32 @@
+03-Visualize-Discrete-Data — Remaining review items
+Updated: 2026-09-09
+
+SCOPE AND DECISIONS
+Items 1-7 and 9-13 are verified; full task text and evidence are in Chat Completed.
+The user approved items 5-8 and uploading the user-rendered HTML on 2026-09-09.
+Canvas instructions and all three attachments are updated and verified.
+Only the approved GitHub commit/push and final tracking reconciliation remain.
+No slide-generation command was run by the agent.
+
+8. Commit and push the approved lecture update.
+   Target: this lecture repository, main -> origin/main.
+   Remote: https://github.com/cdbale/03-Visualize-Discrete-Data.git
+   Status: In progress — explicitly approved by the user on 2026-09-09.
+   Approved local changes and completion records are ready to commit and push.
+   Decision: Standing authorized completion step for an approved update;
+   Approve / Alter / Reject the associated update scope.
+   Evidence: the initial working tree was clean. Local main, origin/main and a
+   live read-only GitHub branch query resolve to
+   3fea5cc265c0248dcf0788d2051c091f65d594f5 ("update lecture").
+   Proposed completion: inspect and commit only approved lecture changes and
+   the associated tracking records, push main to its configured origin, then
+   verify local HEAD against the live remote and inspect remaining working changes.
+   The tracking files created in this review have not yet been committed or pushed.
+   All approved local and Canvas work is verified; GitHub publication is next.
+   Dependencies: all approved local/Canvas items must be reconciled first. Move
+   completed task text to Chat Completed only after verification, appending and
+   verifying there before removing an active entry here.
+
+
+USER-REQUESTED CHANGES — preserved for the user
+Add requested changes or decisions here after discussing the numbered items.

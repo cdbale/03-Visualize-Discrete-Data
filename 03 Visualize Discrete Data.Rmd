@@ -15,6 +15,13 @@ DC 6:36: "Look unto me in every thought; doubt not, fear not."
 
 David A. Bednar - [BYU Speeches, April 16th, 2021](https://speeches.byu.edu/talks/david-a-bednar/look-unto-me-in-every-thought-doubt-not-fear-not/)
 
+## Today's Learning Goals
+
+- Summarize categorical customer characteristics with counts and cross-tabs.
+- Compare customer groups using bar charts, proportions, and facets.
+- Improve chart labels, colors, and category order.
+- Turn review text into tokens and visualize frequent informative words.
+
 ## Grading Exercises
 
 Remember that you grade your own submitted exercises using the rubric specified in each posted exercise solution, adding comments (using the comment feature for Word documents) where your solution differs from the posted solution.
@@ -42,8 +49,8 @@ Visualizations are a form of **summarizing data**. Summarizing data is initially
 
 How we summarize depends on whether the data is **discrete** or **continuous**.
 
-- Discrete means "individually separate and distinct."
-- Discrete data are also called *categorical*.
+- Discrete values are separate and distinct; numeric counts are discrete too.
+- This lecture focuses on **categorical variables**, whose values identify groups.
 
 ---
 
@@ -198,9 +205,56 @@ customer_data |>
   facet_wrap(~ gender)
 ```
 
+## Your Turn! | Audience Size or Concentration?
+
+Patagonia is considering a campaign for customers without college degrees. Management wants to understand how this audience differs across regions and marital-status groups.
+
+Create a faceted bar chart showing the **proportions of college-degree categories within each region**, with separate panels for marital status. Each full bar should represent 100% of the customers in that region and panel.
+
+Which region has the greatest concentration of customers without degrees? Would a chart of raw counts answer the same business question?
+
+## Here's What Your Output Should Be
+
+Panels show `married = No` and `married = Yes`. Each bar has its own region-and-marital-status denominator.
+
+```{r echo=FALSE, fig.width=9, fig.height=3.5}
+customer_data |>
+  count(region, college_degree, married) |>
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  facet_wrap(~ married) +
+  labs(y = "Proportion")
+```
+
+## Here's The Solution | Faceted Proportions
+
+```{r eval=FALSE}
+customer_data |>
+  count(region, college_degree, married) |>
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  facet_wrap(~ married) +
+  labs(y = "Proportion")
+```
+
+The South has the largest **share** without degrees in both panels. The `labs()` line names the vertical axis; we'll explore labels next.
+
+## What Changes When We Use Counts?
+
+```{r echo=FALSE, fig.width=9, fig.height=3.2}
+customer_data |>
+  count(region, college_degree, married) |>
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col() +
+  facet_wrap(~ married) +
+  labs(y = "Customer Count")
+```
+
+The West has the largest **number** without degrees in both panels; the South has the largest **share**. Counts describe audience size; proportions describe concentration. Which matters for the campaign decision?
+
 ## Labels and Scales
 
-Notice that the previous plot no longer has a count on the y-axis - it is a proportion. Let's change the labels.
+Our proportion plots show shares rather than counts on the y-axis. Let's improve the labels on our earlier region-and-gender plot.
 
 ```{r eval=FALSE}
 customer_data |> 
@@ -394,7 +448,7 @@ customer_data |>
 
 ## Text Data
 
-Text data is also discrete but it is **unstructured**.
+Free-form text is **unstructured**. Tokenization turns it into word categories that we can count and visualize.
 
 - Authors can express themselves freely.
 - The same idea can be expressed in many ways.
@@ -445,10 +499,6 @@ Commonly used words aren’t very informative and are referred to as **stop word
 stop_words
 ```
 
-## Pause! How Could We Remove Stop Words?
-
-Remember, we have two data frames. What kind of function could we apply to these data frames to remove rows containing stop words in our data?
-
 ---
 
 This is just a data frame, and we know how to join data frames!
@@ -492,12 +542,62 @@ review_data |>
   geom_col()
 ```
 
-## Factors
+## Factors | Choose the Category Order
 
-Unlike a character variable, a **factor** can include information about order.
+Alphabetical order is not always the order we want.
 
-- A factor's `levels` are numeric values that encode order.
-- A factor's `labels` are the character string associated with each level.
+```{r}
+sizes <- c("small", "medium", "large")
+sort(sizes)
+```
+
+## Factors | Set the Size Order
+
+Specify the category sequence with a factor:
+
+```{r}
+sizes <- factor(sizes, levels = c("small", "medium", "large"))
+sort(sizes)
+```
+
+Creating the factor sets its category order; it does not rearrange observations. Here, `sort()` uses that order to display the values.
+
+## Factors | Order Students by Height
+
+These three students are hypothetical. We want the names ordered by height, rather than alphabetically.
+
+```{r}
+students <- tibble(
+  student = c("Alex", "Bailey", "Casey"),
+  height_cm = c(178, 165, 190)
+)
+```
+
+## Factors | Use Height to Order the Names
+
+Use height to set the name categories from shortest to tallest.
+
+```{r}
+students <- students |>
+  mutate(student = fct_reorder(student, height_cm))
+
+levels(students$student)
+```
+
+`fct_reorder()` sets the order to **Bailey, Alex, Casey**, from shortest to tallest. The rows stay in their original order.
+
+## The Chart Uses the Factor Order
+
+```{r, fig.width=7, fig.height=3}
+students |>
+  ggplot(aes(x = student, y = height_cm)) +
+  geom_col() +
+  labs(x = "Student", y = "Height (cm)")
+```
+
+Now apply the same idea to words: order the word categories by their counts.
+
+## Apply Factor Order to Word Counts
 
 ```{r eval=FALSE}
 review_data |> 
@@ -521,6 +621,13 @@ review_data |>
   geom_col()
 ```
 
+## Factors | What a Factor Stores
+
+Unlike a character variable, a **factor** stores a defined sequence of categories.
+
+- Integer codes represent categories internally; `levels` stores their names as character strings.
+- The level sequence controls plotting order. `fct_reorder()` changes that sequence using another variable.
+
 ## Live Coding
 
 Going back to our prompt from the beginning, imagine Patagonia management is interested in a breakdown of the type of customers, and their preferences, in the `South` region. What type of visualization could we do to accomplish this?
@@ -539,17 +646,16 @@ Going back to our prompt from the beginning, imagine Patagonia management is int
 
 *Supplementary Material*
 
-- *R for Data Science (2e)* Chapters 2 and 18
+- *R for Data Science (2e)*: [1 Data visualization](https://r4ds.hadley.nz/data-visualize.html), [9 Layers](https://r4ds.hadley.nz/layers.html), and [16 Factors](https://r4ds.hadley.nz/factors.html).
+- Optional background: [18 Missing values](https://r4ds.hadley.nz/missing-values.html).
 
 *Artwork by @allison_horst*
 
 ## Exercise 3
 
-In RStudio, create a new Quarto document and do the following.
+Patagonia wants to understand how customer profiles differ across U.S. regions before planning regional marketing messages.
 
-1. Load the tidyverse.
-2. Import and explore `customer_data` using the functions we've covered.
-3. Provide at least one interesting numeric summary and one interesting visualization using discrete variables only.
-4. Practice good coding conventions: Comment often, write in consecutive lines of code using the `|>`, and use the demonstrated style (e.g., variable names, spacing within functions).
-5. Render the Word doc and upload to Canvas.
+Using `customer_data.csv`, choose one discrete customer characteristic. Prepare a count table and a clearly labeled chart comparing that characteristic across regions. Explain one finding that could inform regional messaging and one limitation of that conclusion. Choose the chart form and analysis approach yourself.
+
+Submit a Word document rendered from Quarto containing your code, table, chart, and interpretation. Use the tidyverse and the coding conventions practiced in class.
 

@@ -6,6 +6,8 @@ editor: visual
 
 ## Lecture 03 Notes
 
+Save this Quarto document and `customer_data.csv` together in your lecture folder. Complete the commented TODOs in order before running chunks that depend on them. The supplied code is intentionally incomplete until you fill those gaps.
+
 ### Discrete Data
 
 ```{r}
@@ -16,10 +18,14 @@ editor: visual
 
 ```{r}
 
-# Read in the customer data, and view it.
+# Import customer_data.csv and save the records as customer_data.
 
+```
 
-glimpse(customer_data)
+```{r}
+
+# Inspect the imported customer records and their column types.
+
 ```
 
 ### Summarize Discrete Data
@@ -90,6 +96,27 @@ customer_data |>
   ggplot(aes(x = region, y = n, fill = college_degree)) +
   geom_col(position = "fill") +
   facet_wrap(~ gender)
+```
+
+### Your Turn! | Audience Size or Concentration?
+
+Patagonia is considering a campaign for customers without college degrees. Management wants to understand how this audience differs across regions and marital-status groups.
+
+Create a faceted bar chart showing the proportions of college-degree categories within each region, with separate panels for marital status. Each full bar should represent 100% of the customers in that region and panel.
+
+Which region has the greatest concentration of customers without degrees? Would a chart of raw counts answer the same business question?
+
+```{r}
+
+# Create the requested faceted proportion chart.
+
+```
+
+```{r}
+
+# Compare with a chart of customer counts for the same groups.
+# Explain which chart answers audience size and which answers concentration.
+
 ```
 
 ### Labels and Scales
@@ -205,12 +232,17 @@ review_data |>
 
 ```{r}
 
-# This code removes blank reviews from the data.
+# This code removes rows with missing word tokens from the data.
 
 review_data <- review_data |> 
   drop_na(word)
 
-review_data
+```
+
+```{r}
+
+# Inspect the remaining review tokens after missing values have been removed.
+
 ```
 
 ### Remove Stop Words
@@ -245,6 +277,49 @@ review_data |>
   arrange(desc(n)) |> 
   ggplot(aes(x = word, y = n)) +
   geom_col()
+```
+
+### Factors | Choose the Category Order
+
+Alphabetical order is not always the order we want.
+
+```{r}
+sizes <- c("small", "medium", "large")
+sort(sizes)
+```
+
+```{r}
+# Set the intended category sequence, then display the values in that order.
+sizes <- factor(sizes, levels = c("small", "medium", "large"))
+sort(sizes)
+```
+
+Creating the factor sets its category order; it does not rearrange observations. Here, `sort()` uses that order to display the values.
+
+### Factors | Order Students by Height
+
+These three students are hypothetical. We want the names ordered by height, rather than alphabetically.
+
+```{r}
+students <- tibble(
+  student = c("Alex", "Bailey", "Casey"),
+  height_cm = c(178, 165, 190)
+)
+
+students <- students |>
+  mutate(student = fct_reorder(student, height_cm))
+
+levels(students$student)
+```
+
+The factor levels are now Bailey, Alex, Casey, from shortest to tallest. The rows stay in their original order.
+
+```{r}
+# The chart uses the factor's category order.
+students |>
+  ggplot(aes(x = student, y = height_cm)) +
+  geom_col() +
+  labs(x = "Student", y = "Height (cm)")
 ```
 
 ### Factors

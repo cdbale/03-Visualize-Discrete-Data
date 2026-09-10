@@ -2,68 +2,79 @@
 title: "Exercise 3 Solution"
 format: docx
 editor: visual
+execute:
+  warning: false
+  message: false
 ---
 
 ## Exercise 3
 
-In RStudio, create a new Quarto document and do the following.
+Patagonia wants to understand how customer profiles differ across U.S. regions before planning regional marketing messages.
 
-1.  Load the tidyverse.
-2.  Import and explore `customer_data` using the functions we've covered.
-3.  Provide at least one interesting numeric summary and one interesting visualization using discrete variables only.
-4.  Practice good coding conventions: Comment often, write in consecutive lines of code using the `|>`, and use the demonstrated style (e.g., variable names, spacing within functions).
-5.  Render the Word doc and upload to Canvas.
+Using `customer_data.csv`, choose one discrete customer characteristic. Prepare a count table and a clearly labeled chart comparing that characteristic across regions. Explain one finding that could inform regional messaging and one limitation of that conclusion. Choose the chart form and analysis approach yourself.
+
+Submit a Word document rendered from Quarto containing your code, table, chart, and interpretation. Use the tidyverse and the coding conventions practiced in class.
+
+## Grading Rubric
 
 Five points total, one point each for:
 
-\- Loading the tidyverse.
+1.  **Choosing an appropriate discrete variable.** Options for the characteristic being compared are `gender`, `married`, `college_degree`, `state`, or `star_rating` treated as ordered categories. `birth_year` also qualifies when analyzed as distinct year categories with a meaningful interpretation. `region` supplies the comparison groups; it is not an additional characteristic to compare with itself. IDs identify individual records, and raw review text is unstructured; neither alone provides the requested customer-profile comparison. Continuous measurements such as `income` and `credit` do not meet this criterion merely because they are stored as numbers.
+2.  **Providing a correct count table** comparing the chosen characteristic across regions.
+3.  **Providing a correct, clearly labeled visualization** comparing that characteristic across regions. Counts or within-region proportions are acceptable when labeled accurately.
+4.  **Following good coding conventions,** including use of the tidyverse, readable pipes and spacing, meaningful names, and useful comments.
+5.  **Submitting a rendered Word document** containing code, the table, chart, and written interpretation.
 
-\- Providing at least one numeric summary.
+Different variables, chart forms, and defensible interpretations can earn full credit. The example below is one possible response, not an output students must duplicate.
 
-\- Providing at least one visualization.
+## One Possible Solution
 
-\- Following good coding conventions (e.g., using pipe operators, including comments).
-
-\- Submitting a rendered Word doc.
+We compare college-degree status across regions to describe one aspect of the customer base that could inform regional messaging research.
 
 ```{r}
-
-# Load the tidyverse.
-
+# Load the tools and import the customer records.
 library(tidyverse)
 
-# Import data.
-
 customer_data <- read_csv("customer_data.csv", show_col_types = FALSE)
-
-customer_data
 ```
 
+### Customer Counts
+
 ```{r}
-
-# At least one interesting numeric summary. For example, the number of "high income" customers by gender.
-
-customer_data |> 
-  mutate(high_income = income > 120000) |> 
-  count(gender, high_income) |> 
-  arrange(desc(n))
+# Count customers in each region and degree-status category.
+customer_data |>
+  count(region, college_degree)
 ```
 
-```{r}
+The table shows customer counts. Because regions have different numbers of customers, the chart below compares the mix within each region using proportions.
 
-# At least one interesting visualization. For example, the top 10 most commonly used words for 5-star reviews.
+### Regional Comparison
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3.5
+#| fig-alt: "Stacked proportion bars comparing college-degree status across U.S. regions."
 
 customer_data |>
-  filter(star_rating == 5) |> 
-  select(review_text) |> 
-  tidytext::unnest_tokens(word, review_text) |> 
-  drop_na(word) |> 
-  anti_join(tidytext::stop_words) |> 
-  count(word) |> 
-  arrange(desc(n)) |> 
-  slice(1:10) |> 
-  mutate(word = fct_reorder(word, n)) |>
-  ggplot(aes(x = n, y = word)) +
-  geom_col() +
-  labs(title = "Most Commonly Used Words for 5-Star Reviews")
+  count(region, college_degree) |>
+  ggplot(aes(x = region, y = n, fill = college_degree)) +
+  geom_col(position = "fill") +
+  labs(
+    title = "College-Degree Status by Region",
+    subtitle = "10,531 customers in the CRM database",
+    x = "Region",
+    y = "Proportion of Customers"
+  ) +
+  scale_fill_manual(
+    name = "College Degree",
+    values = c("No" = "cornflowerblue", "Yes" = "navy")
+  )
 ```
+
+### Interpretation
+
+The height of each full bar is 1, representing all customers in that region. Each colored segment shows the share with that college-degree status, not the number of customers. The count table retains the group sizes needed to interpret those shares.
+
+About 20% of customers in the South have college degrees, compared with roughly 79-81% in the other regions. Patagonia could investigate whether messages developed for its overall customer base also resonate with Southern customers, whose education profile differs substantially in these records.
+
+These differences do not establish that degree status causes different product preferences or that any particular message will work. The CRM records may also differ from the broader population of prospective customers. Testing messages and collecting preference data would be needed before choosing a regional campaign.
