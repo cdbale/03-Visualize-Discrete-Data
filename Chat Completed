@@ -724,3 +724,19 @@ SHA256 9efb45f943d232c7e68d0b528e31d5c91592294fadc9bbdddadb96d0107443b0.
 That user-modified HTML is excluded from this source-change commit.
 No render, knit, Canvas upload, or generated-slide edit was performed.
 All decisions 16-21 are resolved; no approved source changes remain pending.
+
+
+22. Align starter factor section labels - 2026-09-16
+User request (verbatim): "Align the section labels"
+Decision: Approved by explicit request following the heading comparison.
+Status: Verified.
+Target: 03-starter-code.qmd, factor examples through word-count application.
+Added Factors | Set the Size Order, Factors | Use Height to Order the Names,
+and The Chart Uses the Factor Order. Renamed Factors to Apply Factor Order
+to Word Counts. Split the existing student chunk before fct_reorder() solely
+to place its heading outside the code; retained every code statement in order.
+Verified all six factor-section headings match the slide source, concatenated
+R code is unchanged apart from whitespace, chunk fences are balanced, and
+source diff --check passes. No execution or rendering was necessary for this
+label-only change. No Canvas upload was requested or performed. Existing
+user-modified HTML files were excluded from this change and its commit.

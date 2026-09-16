@@ -288,6 +288,8 @@ sizes <- c("small", "medium", "large")
 sort(sizes)
 ```
 
+### Factors | Set the Size Order
+
 ```{r}
 # Set the intended category sequence, then display the values in that order.
 sizes <- factor(sizes, levels = c("small", "medium", "large"))
@@ -305,7 +307,11 @@ students <- tibble(
   student = c("Alex", "Bailey", "Casey"),
   height_cm = c(178, 165, 190)
 )
+```
 
+### Factors | Use Height to Order the Names
+
+```{r}
 students <- students |>
   mutate(student = fct_reorder(student, height_cm))
 
@@ -313,6 +319,8 @@ levels(students$student)
 ```
 
 The factor levels are now Bailey, Alex, Casey, from shortest to tallest. The rows stay in their original order.
+
+### The Chart Uses the Factor Order
 
 ```{r}
 # The chart uses the factor's category order.
@@ -322,7 +330,7 @@ students |>
   labs(x = "Student", y = "Height (cm)")
 ```
 
-### Factors
+### Apply Factor Order to Word Counts
 
 ```{r}
 
