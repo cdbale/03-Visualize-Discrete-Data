@@ -28,13 +28,10 @@ Remember that you grade your own submitted exercises using the rubric specified 
 
 ## Marketing Analytics Process
 
-<center>
-![](Figures/process_visualize.png){width=900px}
-</center>
-
----
-
-![](Figures/hex_dplyr-ggplot2.png){width=900px}
+<div style="display: flex; align-items: center; gap: 20px;">
+<img src="Figures/process_visualize.png" alt="Marketing analytics process, with visualization highlighted" style="width: 76%; height: auto;" />
+<img src="Figures/hex_dplyr-ggplot2.png" alt="dplyr and ggplot2 tools" style="width: 20%; height: auto;" />
+</div>
 
 ## Motivating Example
 
@@ -93,18 +90,22 @@ customer_data |>
 
 How would I get a count by both `region` and `college_degree` (i.e., a **cross-tab**)?
 
----
+<div class="build">
+<div>
 
 ```{r}
 customer_data |> 
   count(region, college_degree)
 ```
 
+</div>
+</div>
+
 ## Your Turn!
 
 Write code that first filters the data to only unmarried customers, then counts the customers in each region (you will need to use code we learned in the last lecture to do this!)
 
-## Here's What Your Output Should Be
+**Expected output:**
 
 ```{r, echo=FALSE}
 
@@ -116,7 +117,7 @@ customer_data |>
 
 ## Here's The Solution
 
-```{r}
+```{r eval=FALSE}
 
 customer_data |>
   filter(married == 'No') |>
@@ -161,13 +162,9 @@ customer_data |>
 
 ---
 
-Visualize our second summary by adding the aesthetic `fill = college_degree`.
+The aesthetic `fill = college_degree` colors the categories. By default, `geom_col()` stacks their counts.
 
-The `position` argument of the `geom_col()` function is set to `stack` by default. Try `fill` instead.
-
----
-
-```{r}
+```{r fig.width=8, fig.height=2.8}
 customer_data |> 
   count(region, college_degree) |> 
   ggplot(aes(x = region, y = n, fill = college_degree)) +
@@ -176,7 +173,9 @@ customer_data |>
 
 ---
 
-```{r}
+Set `position = "fill"` in `geom_col()` to show proportions: each region's full bar represents 100% of its customers.
+
+```{r fig.width=8, fig.height=2.8}
 customer_data |> 
   count(region, college_degree) |> 
   ggplot(aes(x = region, y = n, fill = college_degree)) +
@@ -290,42 +289,13 @@ customer_data |>
 
 What about the legend? And these *colors*?
 
+Append this scale to the preceding plot with `+`. The complete pipeline is in your starter code.
+
 ```{r eval=FALSE}
-customer_data |> 
-  count(region, college_degree, gender) |> 
-  ggplot(aes(x = region, y = n, fill = college_degree)) +
-  geom_col(position = "fill") +
-  facet_wrap(~ gender) +
-  labs(
-    title = "Proportion of Customers with College Degrees by Region and Gender",
-    subtitle = "Based on 10,531 Customers in the CRM Database",
-    x = "Region",
-    y = "Proportion"
-  ) +
-  scale_fill_manual(
-    name = "College Degree",
-    values = c("cornflowerblue", "navy")
-  )
-```
-
----
-
-```{r echo=FALSE}
-customer_data |> 
-  count(region, college_degree, gender) |> 
-  ggplot(aes(x = region, y = n, fill = college_degree)) +
-  geom_col(position = "fill") +
-  facet_wrap(~ gender) +
-  labs(
-    title = "Proportion of Customers with College Degrees by Region and Gender",
-    subtitle = "Based on 10,531 Customers in the CRM Database",
-    x = "Region",
-    y = "Proportion"
-  ) +
-  scale_fill_manual(
-    name = "College Degree",
-    values = c("cornflowerblue", "navy")
-  )
+scale_fill_manual(
+  name = "College Degree",
+  values = c("cornflowerblue", "navy")
+)
 ```
 
 ## What Else Should We Change? Are All Plot Aspects Legible?
@@ -350,23 +320,10 @@ customer_data |>
 
 ## Let's Rotate the X-axis Labels
 
-```{r, eval=FALSE}
-customer_data |> 
-  count(region, college_degree, gender) |> 
-  ggplot(aes(x = region, y = n, fill = college_degree)) +
-  geom_col(position = "fill") +
-  facet_wrap(~ gender) +
-  labs(
-    title = "Proportion of Customers with College Degrees by Region and Gender",
-    subtitle = "Based on 10,531 Customers in the CRM Database",
-    x = "Region",
-    y = "Proportion"
-  ) +
-  scale_fill_manual(
-    name = "College Degree",
-    values = c("cornflowerblue", "navy")
-  ) +
-  theme(axis.text.x = element_text(angle = 45, vjust=0.5))
+Append this theme adjustment to the labeled, recolored plot with `+`.
+
+```{r eval=FALSE}
+theme(axis.text.x = element_text(angle = 45, vjust=0.5))
 ```
 
 ---

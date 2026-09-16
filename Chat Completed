@@ -553,3 +553,174 @@ pending decision field. They could save approximately six slides (59 -> 53),
 subject to preserving image/code/table legibility when eventually rendered.
 No condensation edits have been applied. Source-removal and text-copy checks
 passed; no R execution is needed because the R chunks are unchanged.
+
+
+Condensation decisions and implementation - 2026-09-16
+User decisions (verbatim):
+16. Approved.
+17. Rejected.
+18. Approved.
+19. Approved.
+20. Mention the aesthetic fill with the example on slide 23, and the position  = fill on slide 24.
+21. Approved.
+
+The decisions above supersede the historical PENDING fields below.
+Original proposals and preservation requirements:
+16. Combine the two visual orientation slides.
+    Target: 03 Visualize Discrete Data.Rmd, slides 5-6, Marketing Analytics
+    Process and the following dplyr/ggplot2 artwork (current lines 29-38).
+    Evidence: two consecutive image-only slides precede the same Patagonia
+    motivation. The second contains no additional explanation or code.
+    Proposed change: retain the process diagram as the main image and place
+    the dplyr/ggplot2 artwork beside it as a smaller tool cue on that slide.
+    Keep both visuals and preserve the separate Motivating Example slide.
+    Why concepts remain: the analytics-process position and tool transition
+    remain visible together; no analytical example is removed.
+    Effect/dependencies: approximately one fewer slide. Preserve diagram labels
+    at readable size; if that cannot fit, retain both slides. No starter change.
+    Conceptual emphasis: no intended change; the decorative tool artwork is smaller.
+    Decision: PENDING — Approve / Alter / Reject.
+
+17. Put package setup on the data-import/inspection slide.
+    Target: slide 9 (library(tidyverse) alone) and slide 10 (identify discrete
+    variables, read_csv(), glimpse()), current source lines 55-69.
+    Evidence: one entire slide shows only package loading and its startup output.
+    Proposed change: move library(tidyverse) to the start of the following
+    setup chunk; suppress package startup messages. Retain the import, glimpse
+    output, and question about variables and their R data types. Leave the
+    five-type reference table on slide 11 separate.
+    Why concepts remain: students still see the complete load/import/inspect
+    sequence and use real data to distinguish a variable's meaning from its type.
+    Effect/dependencies: approximately one fewer slide. Keep the data preview
+    readable. Starter already has the same setup order and deliberate blanks;
+    do not fill those blanks or remove them as part of this change.
+    Conceptual emphasis: no intended change; startup diagnostics leave the deck.
+    Decision: PENDING — Approve / Alter / Reject.
+
+18. Combine the cross-tab question and answer with a staged reveal.
+    Target: slides 13-14, question about region and college_degree followed by
+    count(region, college_degree), current source lines 92-102.
+    Evidence: a short one-sentence prompt has its own slide before a short
+    code-and-table answer. The previous one-variable count remains separate.
+    Proposed change: keep the cross-tab question at the top of one slide and
+    reveal the current code and table only after students suggest an answer.
+    Why concepts remain: retain both the one-variable count and two-variable
+    cross-tab, with the same question and time to retrieve the syntax.
+    Effect/dependencies: approximately one fewer slide. Use a reveal compatible
+    with the existing ioslides format; preserve the starter cross-tab blank.
+    Conceptual emphasis: revealing the answer immediately would weaken recall
+    practice, so delayed display is a condition of this suggestion.
+    Decision: PENDING — Approve / Alter / Reject.
+
+19. Put the first Your Turn prompt beside its expected count table.
+    Target: slides 15-17, unmarried-customer filter/count exercise, expected
+    output, and solution, current source lines 103-126.
+    Evidence: the prompt and small four-region output occupy separate slides;
+    a third slide shows the code and repeats that output.
+    Proposed change: combine slides 15-16 into a task-plus-expected-output
+    slide, with no solution code. Keep slide 17 as the separate code solution;
+    suppress only its repeated table, since the expected result was just shown.
+    Why concepts remain: retain the filter/count application, desired output,
+    student work time, and later answer reveal. No example is removed.
+    Effect/dependencies: approximately one fewer slide. Preserve starter TODOs.
+    This is the introductory count exercise, not the later faceted exercise.
+    Conceptual emphasis: showing the target table with the prompt makes the
+    desired result visible sooner; students still have to determine the code.
+    Decision: PENDING — Approve / Alter / Reject.
+
+20. Attach the stacked-chart introduction to its worked example.
+    Target: slides 22-24, fill/stack introduction, stacked chart, and proportion
+    chart, current source lines 162-185.
+    Evidence: slide 22 contains only two introductory sentences; slide 23 then
+    shows the code and graph those sentences describe.
+    Proposed change: put a brief fill = college_degree/default-stack note on
+    slide 23. Retain a prompt to try position = "fill" before advancing to the
+    separate slide 24 proportion example. Keep both code examples and outputs.
+    Why concepts remain: fill mapping, default counts, normalized proportions,
+    and the comparison between the two displays remain explicit.
+    Effect/dependencies: approximately one fewer slide if code/graph legibility
+    is retained. Keep the separate gender-faceting and marital-status exercise
+    sequence intact. Starter examples and operations need no change.
+    Conceptual emphasis: no intended change; do not collapse the two chart forms.
+    Decision: PENDING — Approve / Alter / Reject.
+
+21. Remove the duplicate polish chart and focus the displayed changes.
+    Target: slides 31-37, Labels and Scales through rotated-axis output,
+    current source lines 255-392.
+    Evidence: slides 34 and 35 execute the same plotting pipeline and show the
+    same chart; slide 35 adds only the legibility question. Slides 33 and 36
+    repeat all earlier code before the new scale/theme additions.
+    Proposed change: put the legibility question on slide 34 and remove the
+    duplicate slide 35. Keep the labels, colors, and rotated-label results.
+    Show the complete labels pipeline once; on subsequent code slides display
+    only the added scale_fill_manual(...) or theme(...) lines, clearly labeled
+    as additions to the preceding plot. Keep full executable pipelines in the
+    underlying evaluated chunks and in the starter, without introducing a new
+    plot-object workflow or leaving fragments that appear standalone-runnable.
+    Why concepts remain: all labs() fields, sample-size subtitle, legend title,
+    manual colors, theme(), element_text(), angle and vjust remain taught.
+    The separate Northeast exercise still applies labels/colors independently.
+    Effect/dependencies: approximately one fewer slide, plus less repeated code
+    to scan. No starter reduction or exercise changes. Keep each new operation
+    and its output rather than putting a long pipeline and graph on one slide.
+    Conceptual emphasis: no intended change; full code remains available in starter.
+    Decision: PENDING — Approve / Alter / Reject.
+
+PRESERVE DURING ANY APPROVED CONDENSATION
+- Spiritual opening and current learning-goals placement.
+- Categorical/discrete distinction and the R data-type reference table.
+- First ggplot layer explanation, grammar artwork, and |> versus + distinction.
+- All three Your Turn activities and meaningful student work time.
+- All four faceted-exercise slides (27-30), including expected proportions before
+  solution, per-bar denominator, raw counts, and the West/South ranking contrast.
+- Tokenization, missing tokens, stop-word data, anti-join explanation/animation,
+  and the unreadable all-word chart that motivates selection and ordering.
+- All size and student-height factor examples, including the recently requested
+  slide splits (50-53), their chart, and the unchanged-row-order explanation.
+- Word-count application followed by factor definitions just before Live Coding.
+- Open-ended Live Coding and closing summary/readings.
+These sections either introduce distinct concepts or preserve examples and
+pacing the user explicitly requested; no further compression is proposed.
+
+
+Completion evidence:
+16. Verified: combined the process diagram and dplyr/ggplot2 artwork on one
+    slide, with the process diagram at 76% of the content width and the tool
+    cue at 20%, aligned beside it. Both images have descriptive alt text.
+    Reviewed original assets and proportions; final rendered layout remains
+    to be checked after an explicitly requested/user-supplied render.
+17. Rejected, decision honored and verified: the separate library(tidyverse)
+    slide, startup behavior, import/glimpse slide and type table are unchanged.
+18. Verified in source: question remains visible; wrapped its existing code
+    and count-table output together in a single child of an ioslides .build
+    container, so one advance reveals both. Inspected existing ioslides JS/CSS:
+    makeBuildLists_ marks .build > * as to-build; nextSlide invokes buildNextItem_
+    before changing slides. No slide-generation command was run.
+19. Verified: prompt and expected four-region count table now share a slide.
+    The following code solution remains separate, with eval=FALSE to avoid
+    repeating the already displayed table. Starter blanks remain intact.
+20. Verified with the user's altered wording placement: fill = college_degree
+    and default stacked counts accompany the original slide 23 example;
+    position = "fill" and its within-region 100% denominator accompany the
+    original slide 24 example. Removed the standalone introductory slide.
+    Retained both full code examples and graphs, with 8 x 2.8 inch plot sizes
+    to allow room for their explanatory sentences.
+21. Verified: consolidated the identical manual-color plot outputs, retaining
+    the legibility question with the chart. The scale and theme code slides
+    show only the added functions and explicitly instruct students to append
+    them with +. Full executable pipelines remain in evaluated output chunks
+    and in the unchanged starter. Labels/colors/rotation results all remain.
+
+Checks: 59 -> 54 source slides including the title. All 38 R chunks parse with
+base R; only startup locale warnings were emitted. Source git diff --check
+passed. The set of distinct evaluated R pipelines is unchanged; removed
+execution was redundant output only. Checked protected blocks exactly against
+HEAD: spiritual opening/goals/grading, motivation/types/setup, the four faceted
+exercise slides, and all content from Text Data through Wrapping Up. Reveal
+wrappers are balanced. Existing factor splits and live-coding placement remain.
+Starter, solution files, index.html, style.css and image assets were not edited.
+The user's pre-existing modified named HTML was preserved byte-for-byte:
+SHA256 9efb45f943d232c7e68d0b528e31d5c91592294fadc9bbdddadb96d0107443b0.
+That user-modified HTML is excluded from this source-change commit.
+No render, knit, Canvas upload, or generated-slide edit was performed.
+All decisions 16-21 are resolved; no approved source changes remain pending.
