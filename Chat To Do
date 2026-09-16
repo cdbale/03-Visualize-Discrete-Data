@@ -2,44 +2,18 @@
 Updated: 2026-09-16
 
 SCOPE AND DECISIONS
-Prior source changes and starter alignment (items 1-22, except rejected 17)
-are complete. The user now explicitly requests final publication, all repository
-changes committed/pushed, an updated Canvas Pages hyperlink, and replacement
-HTML/starter uploads. Exercise 3 uploads are excluded by the user.
+All approved work through item 26 is Verified. Item 17 was rejected and left
+unchanged. No remaining action items. Original requests, decisions and evidence
+are preserved in Chat Completed.
 
-23. Publish the user-rendered slides and all repository changes.
-    Decision: APPROVED. Status: In progress.
-    Targets: named HTML and index.html, main -> origin/main.
-    The two HTML files match exactly (4,675,505 bytes; SHA256
-    8f62e88280c5df450905d87ecdef497a168635f5a0d3f7f127b77b560fc76078).
-    They contain the approved 54-slide deck and no Exercise 3 slide.
-    Preserve these rendered bytes; no new slide generation is requested.
+The finalized 54-slide user-rendered HTML is published on GitHub Pages and
+uploaded to Canvas. The latest starter is uploaded, and both existing module
+links and published states were preserved. Canvas 03-Slides opens the verified
+Pages version through a refreshed query value. Exercise 3 uploads were excluded.
 
-24. Update and verify the Canvas slide hyperlink against GitHub Pages.
-    Decision: APPROVED. Status: In progress.
-    Course 38688, module item 3180608, 03-Slides. Current URL:
-    https://cdbale.github.io/03-Visualize-Discrete-Data/#1
-    Use the Pages deployment URL and a version query tied to the verified
-    published content. Confirm Pages deployment success and actual served
-    content after the push, then verify the saved Canvas link opens that version.
-    Future pushes must include rendered HTML and finish Pages deployment;
-    no hyperlink guarantees instant publication or bypasses deployment failure.
-
-25. Replace the current Canvas HTML and starter attachments.
-    Decision: APPROVED. Status: In progress.
-    Course 38688: HTML file 13713263/module 3180609; starter file
-    13713240/module 3180610. Preserve published state and module references.
-    Upload the finalized 03-Visualize-Discrete-Data.html and 03-starter-code.qmd
-    through the Chrome extension, using Replace to avoid duplicate filenames.
-    Verify new saved files and module destinations. No Exercise 3 file upload.
-
-26. Final completion audit and tracking reconciliation.
-    Decision: APPROVED. Status: In progress.
-    Confirm current materials, rendered slides, saved Canvas files/link,
-    live Pages publication, and local/tracking/live GitHub branch equality.
-    Exercise/grade-assignment changes and solution upload are not applicable
-    to this finalization because the user moved Exercise 3 out of this lecture.
-    Archive each completed task with evidence before clearing it here.
+Future updates must include refreshed rendered HTML, successful Pages deployment,
+and a live-content/link check; Canvas attachments are snapshots to replace.
+No new rendering or source changes were made during this finalization.
 
 USER-REQUESTED CHANGES — preserved for the user
 Add requested changes or decisions here after discussing the numbered items.

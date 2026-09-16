@@ -740,3 +740,111 @@ R code is unchanged apart from whitespace, chunk fences are balanced, and
 source diff --check passes. No execution or rendering was necessary for this
 label-only change. No Canvas upload was requested or performed. Existing
 user-modified HTML files were excluded from this change and its commit.
+
+
+Final lecture publication - 2026-09-16
+Decision: User explicitly requested finalization under update-411-lecture,
+commit/push of all repository changes, a refreshed Canvas slide hyperlink,
+and new HTML/starter uploads. The user excluded Exercise 3 uploads because
+that exercise was moved out of this lecture.
+Original task text:
+23. Publish the user-rendered slides and all repository changes.
+    Decision: APPROVED. Status: In progress.
+    Targets: named HTML and index.html, main -> origin/main.
+    The two HTML files match exactly (4,675,505 bytes; SHA256
+    8f62e88280c5df450905d87ecdef497a168635f5a0d3f7f127b77b560fc76078).
+    They contain the approved 54-slide deck and no Exercise 3 slide.
+    Preserve these rendered bytes; no new slide generation is requested.
+
+24. Update and verify the Canvas slide hyperlink against GitHub Pages.
+    Decision: APPROVED. Status: In progress.
+    Course 38688, module item 3180608, 03-Slides. Current URL:
+    https://cdbale.github.io/03-Visualize-Discrete-Data/#1
+    Use the Pages deployment URL and a version query tied to the verified
+    published content. Confirm Pages deployment success and actual served
+    content after the push, then verify the saved Canvas link opens that version.
+    Future pushes must include rendered HTML and finish Pages deployment;
+    no hyperlink guarantees instant publication or bypasses deployment failure.
+
+25. Replace the current Canvas HTML and starter attachments.
+    Decision: APPROVED. Status: In progress.
+    Course 38688: HTML file 13713263/module 3180609; starter file
+    13713240/module 3180610. Preserve published state and module references.
+    Upload the finalized 03-Visualize-Discrete-Data.html and 03-starter-code.qmd
+    through the Chrome extension, using Replace to avoid duplicate filenames.
+    Verify new saved files and module destinations. No Exercise 3 file upload.
+
+26. Final completion audit and tracking reconciliation.
+    Decision: APPROVED. Status: In progress.
+    Confirm current materials, rendered slides, saved Canvas files/link,
+    live Pages publication, and local/tracking/live GitHub branch equality.
+    Exercise/grade-assignment changes and solution upload are not applicable
+    to this finalization because the user moved Exercise 3 out of this lecture.
+    Archive each completed task with evidence before clearing it here.
+
+
+Completion evidence - items 23-26: Verified.
+23. Committed and pushed both user-rendered HTML files and publication tracking
+    as d250c5cc978aede889ec7182a7149e4d38132c8b, main -> origin/main.
+    Local HEAD, origin/main and live GitHub main matched; working tree was clean.
+    index.html and 03-Visualize-Discrete-Data.html are identical locally:
+    4,675,505 bytes; SHA256
+    8f62e88280c5df450905d87ecdef497a168635f5a0d3f7f127b77b560fc76078.
+    No slide-generation command ran. The existing supplied render contains
+    all 54 title/instruction slides, no Exercise 3 slide, and an extra ioslides
+    backdrop element excluded from the slide count.
+24. GitHub Pages workflow 35132697514 completed successfully for d250c5c:
+    https://github.com/cdbale/03-Visualize-Discrete-Data/actions/runs/35132697514
+    The published page matches the committed index.html blob byte-for-byte:
+    4,671,648 bytes; SHA256
+    422c5e50d86c10a2f7e56a22fc8c890e6e8a4401524af9c416e3e0b2fc30ba92.
+    The local/remote byte-size difference is solely Git CRLF -> LF normalization.
+    Updated course 38688 module 3180608 (03-Slides) to:
+    https://cdbale.github.io/03-Visualize-Discrete-Data/?v=d250c5c#1
+    Reloaded the saved Canvas item, verified its Open in a new window link,
+    and followed it to the live 54-slide deck ending with Wrapping Up.
+    Preserved the title, one-level indentation, published state and new-tab setting.
+    The v query bypasses prior URL caches; it does not pin a Git revision or
+    freeze future content. Pages is still the current published page.
+    Its observed cache header is max-age=600. Future updates still require
+    pushing rendered HTML, successful Pages deployment and verification; update
+    the query when finalizing future versions. No unconditional instant-update
+    guarantee is claimed from any fixed hyperlink or from a push alone.
+25. Used Chrome Canvas Files Upload -> Replace for the exact finalized files.
+    Verified single current file entries, updated timestamps, publication state,
+    and the existing module links resolving to new files:
+    - HTML: file 13783046, module 3180609, 4.7 MB, published.
+      https://byu.instructure.com/courses/38688/files/13783046
+    - Starter: file 13783051, module 3180610, 8.05 KB, published.
+      https://byu.instructure.com/courses/38688/files/13783051
+    Local starter: 8,241 bytes; SHA256
+    5bd5e6ef5c1352442e8aabe4931403fc39270da672170ab168ef5a9d9afa537d.
+    The Canvas HTML preview includes the new factor sequence, count comparison,
+    Wrapping Up, and no Exercise 3 heading. The QMD destination shows its new
+    file ID and size; Canvas has no QMD preview, so remote QMD bytes were not
+    compared. The upload was made directly from the verified local path.
+    No Exercise 3 assignment, grading note, solution or release setting changed.
+26. Final audit: reviewed current source/starter alignment and existing checks,
+    named HTML/index equality, Canvas file/module state, saved Pages URL, actual
+    served HTML and Git state. On the live Pages deck, visually inspected the
+    combined orientation slide and the proportion chart/explanation; confirmed
+    both fit and images load. Tested cross-tab reveal: its single hidden answer
+    becomes visible on one advance while staying on slide 12. The eight-row
+    table and code fit after reveal. No additional content changes are needed.
+
+Skill checklist status for this finalization:
+1. Verified: approved source and user-rendered 54-slide version, learning goals,
+   open-ended live coding, and explicit user-approved removal of Exercise 3.
+2. Not applicable: Exercise 3 was moved out; no exercise revision/upload requested.
+3. Verified: starter matches examples/order and aligned factor section labels.
+4. Verified: prior approved inspection blanks are intact; no further reduction.
+5. Not applicable: no new exercise-assignment posting in this lecture finalization.
+6. Not applicable: no grading-assignment note changes in this finalization.
+7. Verified: final starter replacement and preserved module link/publication state.
+8. Verified: rendered content pushed and local/tracking/live branch matched.
+9. Verified: successful Pages deployment, matching served HTML, and saved Canvas
+   link followed to the updated deck.
+
+The completion records and cleared active checklist are saved in a final
+tracking-only commit, followed by another local/tracking/live branch check.
+No approved publication work remains active after this reconciliation.
