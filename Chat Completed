@@ -475,3 +475,81 @@ whitespace checks pass. Prior recorded R and Word-output checks remain valid.
 The user-rendered named HTML is identical to index.html; generated HTML
 package-output trailing whitespace was preserved. No source edits followed
 these checks. No approved tasks remain open after tracking reconciliation.
+
+
+Additional requests and condensation review - 2026-09-16
+Decision: Explicitly requested in Chat To Do and authorized by the user's
+instruction to check that file and make the additional updates.
+
+User requests (verbatim):
+Copy the current instructions for Exercise three into a text file that is saved in the 04-Visualize-Continuous-Data repository, and then delete the Exercise 3 slide from the lecture in 03-Visualize-Discrete-Data.
+
+Review all concepts and examples in the current lecture. Make suggestions as described in the update-411-lecture skill regarding condensation suggestions to make the lecture more compact without losing any of the meaningful concepts/examples.
+
+14. Move the Exercise 3 instructions to a text file in lecture 04.
+Status: Verified.
+Copied the complete current three-paragraph Exercise 3 brief into
+../04-Visualize-Continuous-Data/Exercise-03-Instructions.txt, with the plain-text
+heading Exercise 3. Verified the body byte-for-byte against the source before
+removing anything. Then removed only the final Exercise 3 section from
+03 Visualize Discrete Data.Rmd. All preceding content and R code are unchanged.
+The lecture now ends with Wrapping Up. This is the user's explicit exception
+to the usual end-of-lecture exercise placement; do not restore that slide.
+Lecture 04's existing slides and Exercise 4 were not changed. Exercise 3's
+solution, starter, and Canvas assignment were not part of this relocation.
+No slide generation ran. Existing HTML/Canvas slides still contain Exercise 3
+until the user supplies or explicitly requests a new render and publication.
+
+15. Review all concepts/examples and suggest condensation.
+Status: Verified (review completed; suggestions are not approved edits).
+Read the entire current slide source and starter, and reviewed the recent
+factor-pacing changes in this record. Inventoried all 60 original slides,
+including the title; 59 remain in the source after item 14. Slide numbers in
+suggestions 16-21 refer to that source/original rendered deck: removing its
+last slide leaves all other numbers unchanged. Counts are structural estimates,
+not a rendered layout check. No concept/example was removed by this review.
+
+Coverage and preservation decisions:
+- Slides 1-4: title, spiritual thought, learning goals, grading instructions;
+  retain the learning-goal placement and existing guidance.
+- Slides 5-7: analytics-process diagram, dplyr/ggplot2 artwork, Patagonia
+  communication scenario; condense only the two visual orientation slides.
+- Slides 8-11: discrete/categorical distinction, library/import/glimpse,
+  data-type table; retain the distinction and full reference table. Only
+  consolidate package setup with data inspection, not the table.
+- Slides 12-17: one-variable counts, two-variable cross-tab, unmarried-customer
+  filter/count exercise, expected table and solution; retain all operations
+  and examples. Stage the cross-tab answer and keep exercise solution delayed.
+- Slides 18-21: grammar/layers overview, grammar artwork, first bar-chart
+  pipeline and output; retain full beginner code, |> versus +, and legibility.
+- Slides 22-26: fill aesthetic, stacked counts, within-region proportions,
+  gender facets; retain separate count/proportion and facet outputs. Only
+  consolidate the short stacked-chart introduction with its example.
+- Slides 27-30: marital-status faceted exercise, expected proportions before
+  solution, count comparison, denominator and business interpretation;
+  retain all four slides and the West-count/South-share contrast.
+- Slides 31-37: labels, subtitle/sample size, manual legend/colors, axis-label
+  rotation; remove only an identical output repetition and shorten repeated
+  displayed code while retaining each new function and intermediate result.
+- Slides 38-40: Northeast state/marital-status polishing exercise, possible
+  solution and output; retain as the independent application and hex-color example.
+- Slides 41-44: unstructured text, tokenization, word counts, missing values;
+  retain transformation steps and previews, especially the NA diagnosis.
+- Slides 45-47: stop-word data, anti-join explanation/code and animation;
+  retain the new application plus the visual join explanation.
+- Slides 48-49: unreadable all-word plot and diagnostic question; retain
+  the before example that motivates top-ten selection and factor ordering.
+- Slides 50-54: size ordering, hypothetical student heights, fct_reorder,
+  levels, unchanged row order and chart; preserve the recent four-slide split
+  and chart. Combining these again risks the previously reported overflow.
+- Slides 55-57: top-ten word counts with reordered axes and factor internals;
+  keep application followed by the definition immediately before Live Coding.
+- Slides 58-59: open-ended South-region live coding and summary/readings;
+  retain discussion time, lack of prescribed solution, and closing recap.
+
+Six focused options are recorded as items 16-21 in Chat To Do. Each includes
+location, evidence, proposed change, conceptual guardrails/dependencies and a
+pending decision field. They could save approximately six slides (59 -> 53),
+subject to preserving image/code/table legibility when eventually rendered.
+No condensation edits have been applied. Source-removal and text-copy checks
+passed; no R execution is needed because the R chunks are unchanged.
