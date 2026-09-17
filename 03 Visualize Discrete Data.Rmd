@@ -9,11 +9,42 @@ output:
 
 ## Spiritual Thought
 
-DC 6:36: "Look unto me in every thought; doubt not, fear not."
+"Revelations are conveyed in a variety of ways...
 
-"As an apostle of the Lord Jesus Christ, I invoke these blessings upon you, that as you look to the Savior and trust in Him, you will be blessed with hope to overcome perplexity, with spiritual settledness to cut through commotion, with ears to hear and a heart to always remember the word of the Lord, and with the discernment to see things as they really are."
+A light turned on in a dark room is like receiving a message from God quickly, completely, and all at once...However, this pattern of revelation tends to be more rare than common.
 
-David A. Bednar - [BYU Speeches, April 16th, 2021](https://speeches.byu.edu/talks/david-a-bednar/look-unto-me-in-every-thought-doubt-not-fear-not/)
+The gradual increase of light radiating from the rising sun is like receiving a message from God 'line upon line, precept upon precept' (2 Nephi 28:30)."
+
+[David A. Bednar, "Patterns of Revelation", April 2011](https://www.churchofjesuschrist.org/study/general-conference/2011/04/the-spirit-of-revelation?lang=eng).
+
+## Consider the Example of Nephi: "A light in a dark room"
+
+"And it came to pass that I, Nephi, being exceedingly young, nevertheless being large in stature, and also having great desires to know of the mysteries of God, wherefore, I did cry unto the Lord; and behold he did visit me, and did soften my heart that I did believe all the words which had been spoken by my father; wherefore, I did not rebel against him like unto my brothers."
+
+1 Nephi 2:16.
+
+## A Gradual Increase of Light
+
+Nephi was asked to return to Jerusalem to get the brass plates.
+
+- Returns to Jerusalem willingly
+- Tries asking Laban for the plates (fails)
+- Tries trading riches for the plates (fails)
+- Tries again! 1 Nephi 4:6: "And I was led by the Spirit, not knowing beforehand the things which I should do." (success)
+
+## 8 Years Later... Another "Light in a Dark Room"
+
+Nephi is told by the Lord to go up to a mountain, where he is commanded to build a ship.
+
+1 Nephi 17:9: "...Lord, whither shall I go that I may find ore to molten, that I may make tools to construct the ship after the manner which thou hast shown unto me?"
+
+1 Nephi 18:1: Nephi was shown by the Lord "from time to time after what manner [he] should work the timbers of the ship."
+
+## Be Patient with Yourself and the Lord
+
+"In many of the uncertainties and challenges we encounter in our lives, God requires us to do our best, to act and not be acted upon (see 2 Nephi 2:26), and to trust in Him. We may not see angels, hear heavenly voices, or receive overwhelming spiritual impressions. We frequently may press forward hoping and praying—but without absolute assurance—that we are acting in accordance with God’s will. But as we honor our covenants and keep the commandments, as we strive ever more consistently to do good and to become better, we can walk with the confidence that God will guide our steps. And we can speak with the assurance that God will inspire our utterances. This is in part the meaning of the scripture that declares, 'Then shall thy confidence wax strong in the presence of God' (D&C 121:45)."
+
+[David A. Bednar, "Patterns of Revelation", April 2011](https://www.churchofjesuschrist.org/study/general-conference/2011/04/the-spirit-of-revelation?lang=eng).
 
 ## Today's Learning Goals
 
@@ -36,8 +67,6 @@ Remember that you grade your own submitted exercises using the rubric specified 
 ## What Can You Learn from These Rows?
 
 **Across all customers, is the share with a college degree similar across regions?**
-
-Preview: the first six of 10,531 records in `customer_data.csv`.
 
 ```{r motivation-rows, echo=FALSE, message=FALSE, results='asis'}
 local({
@@ -261,11 +290,11 @@ customer_data |>
 
 ## Your Turn! | Audience Size or Concentration?
 
-Patagonia is considering a campaign for customers without college degrees. Management wants to understand how this audience differs across regions and marital-status groups.
+Patagonia is considering a campaign for customers without college degrees. Management wants to understand how this audience differs across regions and marital-status groups. They only have the funding to run the campaign in one region, so they have asked you to select the region where the campaign is likely to be most effective.
 
 Create a faceted bar chart showing the **proportions of college-degree categories within each region**, with separate panels for marital status. Each full bar should represent 100% of the customers in that region and panel.
 
-Which region has the greatest concentration of customers without degrees? Would a chart of raw counts answer the same business question?
+Which region has the greatest concentration of customers without degrees?
 
 ## Here's What Your Output Should Be
 
@@ -460,14 +489,15 @@ customer_data |>
 
 ## Text Data
 
-Free-form text is **unstructured**. Tokenization turns it into word categories that we can count and visualize.
+Free-form text is **unstructured**.
 
-- Authors can express themselves freely.
-- The same idea can be expressed in many ways.
+What types of visualizations have you seen that are based on text data?
 
 What sort of structure might we impose on text data so we can visualize it?
 
 ## Tokenize Text Data
+
+Tokenization turns it into word categories that we can count and visualize.
 
 We can use `unnest_tokens()` to **tokenize** the text (i.e., split it into individual words or tokens).
 

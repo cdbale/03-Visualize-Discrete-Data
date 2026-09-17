@@ -98,13 +98,13 @@ customer_data |>
   facet_wrap(~ gender)
 ```
 
-### Your Turn! | Audience Size or Concentration?
+### Your Turn! \| Audience Size or Concentration?
 
-Patagonia is considering a campaign for customers without college degrees. Management wants to understand how this audience differs across regions and marital-status groups.
+Patagonia is considering a campaign for customers without college degrees. Management wants to understand how this audience differs across regions and marital-status groups. They only have the funding to run the campaign in one region, so they have asked you to select the region where the campaign is likely to be most effective.
 
-Create a faceted bar chart showing the proportions of college-degree categories within each region, with separate panels for marital status. Each full bar should represent 100% of the customers in that region and panel.
+Create a faceted bar chart showing the **proportions of college-degree categories within each region**, with separate panels for marital status. Each full bar should represent 100% of the customers in that region and panel.
 
-Which region has the greatest concentration of customers without degrees? Would a chart of raw counts answer the same business question?
+Which region has the greatest concentration of customers without degrees?
 
 ```{r}
 
@@ -279,7 +279,7 @@ review_data |>
   geom_col()
 ```
 
-### Factors | Choose the Category Order
+### Factors \| Choose the Category Order
 
 Alphabetical order is not always the order we want.
 
@@ -288,7 +288,7 @@ sizes <- c("small", "medium", "large")
 sort(sizes)
 ```
 
-### Factors | Set the Size Order
+### Factors \| Set the Size Order
 
 ```{r}
 # Set the intended category sequence, then display the values in that order.
@@ -298,7 +298,7 @@ sort(sizes)
 
 Creating the factor sets its category order; it does not rearrange observations. Here, `sort()` uses that order to display the values.
 
-### Factors | Order Students by Height
+### Factors \| Order Students by Height
 
 These three students are hypothetical. We want the names ordered by height, rather than alphabetically.
 
@@ -309,7 +309,7 @@ students <- tibble(
 )
 ```
 
-### Factors | Use Height to Order the Names
+### Factors \| Use Height to Order the Names
 
 ```{r}
 students <- students |>
