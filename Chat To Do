@@ -1,19 +1,20 @@
 03-Visualize-Discrete-Data — Remaining review items
-Updated: 2026-09-16
+Updated: 2026-09-17
 
 SCOPE AND DECISIONS
-All approved work through item 26 is Verified. Item 17 was rejected and left
-unchanged. No remaining action items. Original requests, decisions and evidence
-are preserved in Chat Completed.
+All approved work through item 27 is Verified within its recorded scope.
+Item 17 was rejected and left unchanged. No remaining requested source changes.
+Original requests, decisions and evidence are preserved in Chat Completed.
 
-The finalized 54-slide user-rendered HTML is published on GitHub Pages and
-uploaded to Canvas. The latest starter is uploaded, and both existing module
-links and published states were preserved. Canvas 03-Slides opens the verified
-Pages version through a refreshed query value. Exercise 3 uploads were excluded.
+Item 27 replaces the Patagonia motivation with two source slides: actual
+customer rows and a chart answering the regional college-degree question.
+The source and standalone chart were checked; no lecture render was requested.
+HTML, GitHub Pages and Canvas do not yet include this new motivation example.
 
-Future updates must include refreshed rendered HTML, successful Pages deployment,
-and a live-content/link check; Canvas attachments are snapshots to replace.
-No new rendering or source changes were made during this finalization.
+The prior 54-slide publication was finalized on 2026-09-16. Future publication
+must include refreshed rendered HTML, successful Pages deployment, a live-content
+and Canvas-link check, and replacement of the relevant Canvas attachments.
+Existing unrelated user edits remain outside this source-only change.
 
 USER-REQUESTED CHANGES — preserved for the user
 Add requested changes or decisions here after discussing the numbered items.

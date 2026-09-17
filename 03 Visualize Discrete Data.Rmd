@@ -33,9 +33,64 @@ Remember that you grade your own submitted exercises using the rubric specified 
 <img src="Figures/hex_dplyr-ggplot2.png" alt="dplyr and ggplot2 tools" style="width: 20%; height: auto;" />
 </div>
 
-## Motivating Example
+## What Can You Learn from These Rows?
 
-Imagine our client, Patagonia, has been happy with the results we've obtained from transforming the data (filtering, mutating, joining, slicing, etc.). Suppose that your results have been shared with the technical team, but that stakeholders are asking for a presentation on your results. What are some concise and effective ways that you could communicate data-based insights about Patagonia's customer base?
+**Across all customers, is the share with a college degree similar across regions?**
+
+Preview: the first six of 10,531 records in `customer_data.csv`.
+
+```{r motivation-rows, echo=FALSE, message=FALSE, results='asis'}
+local({
+  customers <- readr::read_csv("customer_data.csv", show_col_types = FALSE)
+  preview <- utils::head(
+    customers[c("customer_id", "region", "married", "college_degree")],
+    6
+  )
+  knitr::kable(
+    preview,
+    col.names = c("Customer", "Region", "Married", "College degree"),
+    row.names = FALSE
+  )
+})
+```
+
+How easily could you answer the question by scanning thousands of rows?
+
+## A Visualization Reveals the Regional Pattern
+
+```{r motivation-chart, echo=FALSE, message=FALSE, fig.width=9, fig.height=3.6}
+local({
+  customers <- readr::read_csv("customer_data.csv", show_col_types = FALSE)
+  degree_shares <- customers |>
+    dplyr::count(region, college_degree) |>
+    dplyr::group_by(region) |>
+    dplyr::mutate(share = n / sum(n)) |>
+    dplyr::ungroup() |>
+    dplyr::filter(college_degree == "Yes")
+
+  ggplot2::ggplot(degree_shares, ggplot2::aes(x = region, y = share)) +
+    ggplot2::geom_col(fill = "cornflowerblue", width = 0.65) +
+    ggplot2::geom_text(
+      ggplot2::aes(label = sprintf("%.1f%%", 100 * share)),
+      vjust = -0.5,
+      size = 5
+    ) +
+    ggplot2::scale_y_continuous(
+      labels = scales::label_percent(),
+      limits = c(0, 1),
+      breaks = seq(0, 1, 0.25)
+    ) +
+    ggplot2::labs(
+      title = "Customers with a College Degree, by Region",
+      subtitle = "All 10,531 customers; percentages calculated within each region",
+      x = NULL,
+      y = "Share of customers"
+    ) +
+    ggplot2::theme_minimal(base_size = 16)
+})
+```
+
+About **20% in the South** have college degrees, compared with **79-81% elsewhere**. One chart summarizes the pattern across thousands of records.
 
 ## Discrete Data
 

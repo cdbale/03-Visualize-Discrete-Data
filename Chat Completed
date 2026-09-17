@@ -848,3 +848,29 @@ Skill checklist status for this finalization:
 The completion records and cleared active checklist are saved in a final
 tracking-only commit, followed by another local/tracking/live branch check.
 No approved publication work remains active after this reconciliation.
+
+
+27. Replace the Patagonia motivation with a data-to-visualization example.
+    Date: 2026-09-17. Decision: APPROVED by the user's Chat To Do request.
+    Status: Verified (source changes).
+
+Original user requests, preserved verbatim:
+- Remove Patagonia motivating example slide
+- Replace it with a two-slide example. I want to motivate the importance of summarizing data using visualizations. To do so, I want to show some rows from our customer data and ask them a question, e.g., "How do income levels vary across different geographical regions" (this is just an example, you'll have to construct one based on the actual data that uses discrete variables. Then on the next slide, insert a plot that clearly shows the answer to our question.
+
+Implementation and verification:
+- Replaced the single Patagonia motivating slide with two slides in
+  03 Visualize Discrete Data.Rmd. The first shows the first six actual customer
+  records and asks whether college-degree shares are similar across regions.
+  The second answers with a bar chart of within-region degree percentages.
+- Checked all 10,531 records independently: Midwest 872/1,101 = 79.2%;
+  Northeast 2,584/3,224 = 80.1%; South 220/1,111 = 19.8%;
+  West 4,106/5,095 = 80.6%. Region and college_degree have no missing values.
+- Parsed all 40 R chunks. Executed the two new chunks in a fresh R session;
+  checked the six displayed records, all four plotted proportions and labels,
+  and that local setup does not populate the later teaching environment.
+- Visually inspected a standalone chart preview; labels and axes fit.
+  No slides were knitted or rendered. Generated HTML and Canvas remain at
+  their previously published version pending a later render/publication.
+- Existing unrelated spiritual-opening, HTML and starter edits were preserved.
+  This motivation-only request does not require starter-code changes.
