@@ -2,19 +2,18 @@
 Updated: 2026-09-17
 
 SCOPE AND DECISIONS
-All approved work through item 27 is Verified within its recorded scope.
-Item 17 was rejected and left unchanged. No remaining requested source changes.
+All approved work through item 28 is Verified within its recorded scope.
+Item 17 was rejected and left unchanged. No remaining requested changes.
 Original requests, decisions and evidence are preserved in Chat Completed.
 
-Item 27 replaces the Patagonia motivation with two source slides: actual
-customer rows and a chart answering the regional college-degree question.
-The source and standalone chart were checked; no lecture render was requested.
-HTML, GitHub Pages and Canvas do not yet include this new motivation example.
+The finalized 59-slide user-rendered HTML and latest starter are published.
+Both HTML files match; GitHub Pages serves the committed version; Canvas
+attachments were replaced and existing module links/publication states retained.
+Canvas 03-Slides points to the live Pages URL with version query d7378ce.
+Exercise 3 uploads remain excluded. No new rendering was performed.
 
-The prior 54-slide publication was finalized on 2026-09-16. Future publication
-must include refreshed rendered HTML, successful Pages deployment, a live-content
-and Canvas-link check, and replacement of the relevant Canvas attachments.
-Existing unrelated user edits remain outside this source-only change.
+Future publication requires refreshed rendered HTML, successful Pages deployment,
+a live-content and Canvas-link check, and replacement of Canvas attachments.
 
 USER-REQUESTED CHANGES — preserved for the user
 Add requested changes or decisions here after discussing the numbered items.
