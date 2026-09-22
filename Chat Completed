@@ -913,3 +913,48 @@ Implementation and verification:
   remains excluded by explicit user decision. No exercise/solution upload,
   grading-assignment change or data-file update is needed for these revisions.
 - Final tracking reconciliation records completion; no authorized work remains.
+
+
+29. Publish the September 22 lecture revisions.
+    Decision: APPROVED. Status: In progress.
+    Commit and push the changes to GitHub; upload the new HTML slides to Canvas;
+    refresh and verify the Canvas slide link; compare the repository starter
+    with the current Canvas starter; report other update needs.
+    Source and both matching HTML files pushed as 28be41c. Canvas HTML replaced
+    with file 13841946, preserving module 3180609 and published state.
+    A fresh Canvas starter download matches the local file byte-for-byte.
+    Waiting for successful Pages deployment and final live-link verification.
+
+
+Completion evidence - item 29: Verified, 2026-09-22.
+- Pushed lecture source and both supplied HTML files as
+  28be41ce085a6e88aa649254e3923f87d41e7354, main -> origin/main.
+  Both local HTML files match: 4,815,674 bytes; SHA256
+  6610706c6773f82875bdcf7a555f21da41d43711096cb99cfc11a9d43db27184.
+  The deck has 61 slides and includes the new intermediate top-ten-word plot.
+  No source content was changed by the agent and no render command ran.
+  Diff check found only trailing whitespace in the user's added R code and
+  corresponding generated HTML; these formatting-only warnings were preserved.
+- Canvas course 38688: replaced only 03-Visualize-Discrete-Data.html through
+  Chrome, new file 13841946, existing module 3180609, published. Verified the
+  saved preview includes Most Common Words -> Common Themes and factor transition.
+- Freshly downloaded current Canvas starter file 13794479 through module
+  3180610 to Downloads/03-starter-code (1).qmd. Compared with repository file:
+  exact byte equality, 8,440 bytes, SHA256
+  1a5bdf25de9c07e55074202b6f14c43251171556b416a437455faacd644739a9.
+  No starter replacement was necessary or performed.
+- Pages deployment 35756902424 completed successfully for 28be41c:
+  https://github.com/cdbale/03-Visualize-Discrete-Data/actions/runs/35756902424
+  Served HTML equals committed index.html byte-for-byte: 4,811,721 bytes,
+  SHA256 5760411aa0d49fe449720b104c733c009ad10ef5cdb946cb577d3c7ee42ca8c4.
+- Saved Canvas module 3180608 URL:
+  https://cdbale.github.io/03-Visualize-Discrete-Data/?v=28be41c#1
+  Preserved name, indentation, new-tab and published settings. A fresh browser
+  reload of that saved destination confirmed all 61 slides and the new example.
+- Checklist 1/7/8/9: Verified for this publication and unchanged starter upload.
+  Checklist 3: repository/Canvas file equality Verified; optional alignment
+  suggestion item 30 is pending, and no starter edit/upload was authorized.
+  Checklist 4: existing intentional blanks retained; no new reduction in scope.
+  Checklist 2/5/6: Not applicable; Exercise 3 remains excluded from this lecture.
+  No data, exercise, solution or grading-assignment update is needed for these
+  revisions. Authorized publication is complete; optional item 30 remains pending.

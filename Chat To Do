@@ -1,19 +1,27 @@
 03-Visualize-Discrete-Data — Remaining review items
-Updated: 2026-09-17
+Updated: 2026-09-22
 
 SCOPE AND DECISIONS
-All approved work through item 28 is Verified within its recorded scope.
-Item 17 was rejected and left unchanged. No remaining requested changes.
-Original requests, decisions and evidence are preserved in Chat Completed.
+All approved work through item 29 is Verified within its recorded scope.
+Item 17 remains rejected. Optional item 30 awaits a decision; no approved
+publication work remains. Original requests and evidence are in Chat Completed.
 
-The finalized 59-slide user-rendered HTML and latest starter are published.
-Both HTML files match; GitHub Pages serves the committed version; Canvas
-attachments were replaced and existing module links/publication states retained.
-Canvas 03-Slides points to the live Pages URL with version query d7378ce.
-Exercise 3 uploads remain excluded. No new rendering was performed.
+The latest user-rendered 61-slide deck is pushed and deployed on GitHub Pages.
+Canvas HTML file 13841946 is published through the existing module link.
+Canvas 03-Slides points to the verified live version with query 28be41c.
+A fresh Canvas starter download matches the repository file byte-for-byte.
+Exercise 3 remains excluded. No new rendering was performed.
 
-Future publication requires refreshed rendered HTML, successful Pages deployment,
-a live-content and Canvas-link check, and replacement of Canvas attachments.
+30. Optional: add the new intermediate word-count example to the starter.
+    Decision: Pending - Approve / Alter / Reject. Status: Needs update if approved.
+    Target: 03-starter-code.qmd, between Visualize Word Counts and Factors.
+    The slides now include Most Common Words -> Common Themes and its horizontal
+    top-ten-word chart before introducing factor order. The starter moves
+    directly from the all-word chart to Factors. Its later factor-ordered
+    top-ten-word example is present, and local/Canvas starter files match.
+    Proposal: add a matching section and an empty practice chunk for that
+    intermediate plot. If approved, commit/push and replace Canvas starter.
+    This is a new suggestion, not an authorized starter edit or upload.
 
 USER-REQUESTED CHANGES — preserved for the user
 Add requested changes or decisions here after discussing the numbered items.
