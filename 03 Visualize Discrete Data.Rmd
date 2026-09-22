@@ -497,8 +497,6 @@ What sort of structure might we impose on text data so we can visualize it?
 
 ## Tokenize Text Data
 
-Tokenization turns it into word categories that we can count and visualize.
-
 We can use `unnest_tokens()` to **tokenize** the text (i.e., split it into individual words or tokens).
 
 ```{r}
@@ -541,9 +539,7 @@ Commonly used words aren’t very informative and are referred to as **stop word
 stop_words
 ```
 
----
-
-This is just a data frame, and we know how to join data frames!
+## Remove Stop Words
 
 An **anti join** returns rows that *don't* have matching IDs, keeping only the columns from the "left" data frame. (Think of it as the opposite of an inner join.)
 
@@ -583,6 +579,30 @@ review_data |>
   ggplot(aes(x = word, y = n)) +
   geom_col()
 ```
+
+## Most Common Words -> Common Themes
+
+```{r eval=FALSE}
+review_data |> 
+  count(word) |> 
+  arrange(desc(n)) |> 
+  slice(1:10) |>
+  ggplot(aes(x = n, y = word)) +
+  geom_col()
+```
+
+---
+
+```{r echo=FALSE}
+review_data |> 
+  count(word) |> 
+  arrange(desc(n)) |> 
+  slice(1:10) |>
+  ggplot(aes(x = n, y = word)) +
+  geom_col()
+```
+
+Let's use factors to assign an **order** to the words.
 
 ## Factors | Choose the Category Order
 
